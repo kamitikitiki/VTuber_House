@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.vtuber_house.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "D:\\user\\UnityProject\\VTuber_House\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "VTuber_House [Testing]"
+        }
+      }
+    }
+  ]
+}
