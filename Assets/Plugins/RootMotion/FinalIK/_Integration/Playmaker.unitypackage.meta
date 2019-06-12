@@ -1,7 +1,13 @@
 fileFormatVersion: 2
 guid: 0512c18ad5403428db876010796c1cda
+<<<<<<< HEAD
 DefaultImporter:
   externalObjects: {}
+=======
+timeCreated: 1453118000
+licenseType: Store
+DefaultImporter:
+>>>>>>> parent of 4c8dcb4... キャッシュ削除
   userData: 
   assetBundleName: 
   assetBundleVariant: 
