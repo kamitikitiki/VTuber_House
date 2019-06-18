@@ -26,7 +26,7 @@ public class ItemCamera : ItemInterface
         {
             view.SetActive(false);
         }
-        else if (view.active == false)
+        else if (view.activeInHierarchy == false)
         {
             view.SetActive(true);
             view.transform.Rotate(rotate.x, 90, rotate.z);
