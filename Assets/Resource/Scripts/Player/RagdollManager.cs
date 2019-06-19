@@ -10,9 +10,11 @@ public class RagdollManager : MonoBehaviour
     public GameObject Head;
     public GameObject[] RagdollBone;
 
+    Vector3 basePos = Vector3.zero;
+    Quaternion baseRota;
+
     public void OnRagdoll()
     {
-        Debug.Log("on");
         Head.GetComponent<Rigidbody>().useGravity = true;
         Head.GetComponent<Rigidbody>().isKinematic = false;
         Head.GetComponent<Collider>().enabled = true;
@@ -24,8 +26,7 @@ public class RagdollManager : MonoBehaviour
         }
 
         GetComponent<VRIK>().enabled = false;
-        
-        
+
     }
 
     public void OffRagdoll()
@@ -41,12 +42,13 @@ public class RagdollManager : MonoBehaviour
         }
 
         GetComponent<VRIK>().enabled = true;
+        Camera.transform.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        basePos = Camera.transform.position;
     }
 
     // Update is called once per frame
@@ -58,12 +60,40 @@ public class RagdollManager : MonoBehaviour
             {
                 OnRagdoll();
             }
+            else
+            {
+                OffRagdoll();
+            }
         }
+    }
 
+    private void LateUpdate()
+    {
         if (Head.GetComponent<Rigidbody>().isKinematic == false)
         {
-            Camera.gameObject.transform.position = Head.gameObject.transform.position;
-        }
+            var trackingPos = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.CenterEye);
 
+            var scale = transform.localScale;
+            trackingPos = new Vector3(
+                trackingPos.x * scale.x,
+                trackingPos.y * scale.y,
+                trackingPos.z * scale.z
+            );
+
+            Vector3 headr;
+            headr.x = Head.transform.rotation.x;
+            headr.y = Head.transform.rotation.y;
+            headr.z = Head.transform.rotation.z;
+
+            Camera.transform.rotation = Head.transform.rotation;
+
+            // 回転
+            //trackingPos = Camera.transform.rotation * trackingPos;
+            trackingPos = Head.transform.rotation * trackingPos;
+
+            // 固定したい位置から hmd の位置を
+            // 差し引いて実質 hmd の移動を無効化する
+            Camera.transform.position = Head.transform.position + basePos - trackingPos;
+        }
     }
 }
