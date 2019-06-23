@@ -655,7 +655,11 @@ PrefabInstance:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3acdca4bce27714a873d94127def683, type: 3}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!43 &245675507
+=======
+--- !u!43 &289030842
+>>>>>>> parent of 677cbbe... シーン開いただけぷっしゅ
 Mesh:
 =======
 --- !u!21 &268179840
@@ -1536,6 +1540,7 @@ CapsuleCollider:
   m_Height: 0.008308485
   m_Direction: 1
   m_Center: {x: 0, y: 0.0041542426, z: 0}
+<<<<<<< HEAD
 --- !u!4 &1458459313 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2681926845967616621, guid: b3acdca4bce27714a873d94127def683,
@@ -1544,6 +1549,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
 --- !u!21 &1526557138
+=======
+--- !u!21 &1419315282
+>>>>>>> parent of 677cbbe... シーン開いただけぷっしゅ
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -1577,8 +1585,17 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
+<<<<<<< HEAD
 =======
 >>>>>>> 242d3ccb6fa31227f620757fbdfa1539c3c24cd5
+=======
+--- !u!4 &1458459313 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2681926845967616621, guid: b3acdca4bce27714a873d94127def683,
+    type: 3}
+  m_PrefabInstance: {fileID: 158970569}
+  m_PrefabAsset: {fileID: 0}
+>>>>>>> parent of 677cbbe... シーン開いただけぷっしゅ
 --- !u!1 &1556706506
 GameObject:
   m_ObjectHideFlags: 0
@@ -2340,19 +2357,27 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
 <<<<<<< HEAD
+<<<<<<< HEAD
       objectReference: {fileID: 1526557138}
 =======
       objectReference: {fileID: 268179840}
 >>>>>>> 242d3ccb6fa31227f620757fbdfa1539c3c24cd5
+=======
+      objectReference: {fileID: 1419315282}
+>>>>>>> parent of 677cbbe... シーン開いただけぷっしゅ
     - target: {fileID: 7078024723735404268, guid: 6116da3710d3f714f9f4f68e995c9b07,
         type: 3}
       propertyPath: m_Mesh
       value: 
 <<<<<<< HEAD
+<<<<<<< HEAD
       objectReference: {fileID: 245675507}
 =======
       objectReference: {fileID: 942737613}
 >>>>>>> 242d3ccb6fa31227f620757fbdfa1539c3c24cd5
+=======
+      objectReference: {fileID: 289030842}
+>>>>>>> parent of 677cbbe... シーン開いただけぷっしゅ
     - target: {fileID: 7078024723734460146, guid: 6116da3710d3f714f9f4f68e995c9b07,
         type: 3}
       propertyPath: m_IsActive
