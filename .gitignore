@@ -37,3 +37,4 @@ sysinfo.txt
 *.unitypackage
 unityProject.vrmanifest
 ProjectSettings/ProjectVersion.txt
+Assets/Plugins/RootMotion/FinalIK/_Integration.meta
