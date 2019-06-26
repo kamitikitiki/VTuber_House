@@ -29,7 +29,6 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     // マッチングが成功した時に呼ばれるコールバック
     public override void OnJoinedRoom()
     {
-
         Debug.Log("join");
         // マッチング後、ランダムな位置に自分自身のネットワークオブジェクトを生成する
         //var v = new Vector3(Random.Range(-3f, 3f), Random.Range(-3f, 3f));
