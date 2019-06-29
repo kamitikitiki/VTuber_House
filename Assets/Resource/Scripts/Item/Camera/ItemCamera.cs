@@ -8,18 +8,11 @@ public class ItemCamera : ItemInterface
     // Start is called before the first frame update
     void Start()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        Init();
     }
 
     public override int OnButton()
     {
-
         GameObject view = transform.GetChild(1).gameObject;
         Quaternion rotate = view.transform.rotation;
         if (rotate.y >= 250)

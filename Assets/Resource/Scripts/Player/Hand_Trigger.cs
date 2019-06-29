@@ -26,6 +26,8 @@ public class Hand_Trigger : MonoBehaviour
             {
                 Rigidbody hand = GetComponent<Rigidbody>();
                 Rigidbody releaseItem = Joint.connectedBody;
+                ItemInterface src = HaveItem.GetComponent<ItemInterface>();
+                src.SetRelease();
                 Joint.connectedBody = null;
                 HaveItem = null;
                 releaseItem.velocity = SteamVR_Actions.default_Pose.GetVelocity(HandType);
@@ -49,9 +51,14 @@ public class Hand_Trigger : MonoBehaviour
         {
             if (SteamVR_Actions.default_GrabPinch.GetStateDown(HandType))
             {
-                Debug.Log("grab");
-                HaveItem = other.gameObject;
-                Joint.connectedBody = other.gameObject.GetComponent<Rigidbody>();
+                //アイテムを持った時の処理
+                ItemInterface src = other.GetComponent<ItemInterface>();
+                if(src.IsHave() == false)
+                {
+                    src.SetHave();
+                    HaveItem = other.gameObject;
+                    Joint.connectedBody = other.gameObject.GetComponent<Rigidbody>();
+                }
             }
         }
     }
