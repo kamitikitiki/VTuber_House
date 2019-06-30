@@ -10,7 +10,7 @@ public class ItemInterface : MonoBehaviourPunCallbacks, IPunObservable
     //継承先でも同期される変数
 
     //--アイテムが持たれているかどうかのフラグ true 持つ　false 持ってない
-    private bool f_Have;
+    public bool f_Have;
     public bool IsHave() { return f_Have; }
     public void SetHave()
     {
@@ -45,11 +45,16 @@ public class ItemInterface : MonoBehaviourPunCallbacks, IPunObservable
     // データを送受信するメソッド
     void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
+        /*
         stream.SendNext(f_Have);
         stream.SendNext(f_Button);
 
-        f_Have = (bool)stream.ReceiveNext();
-        f_Button = (int)stream.ReceiveNext();
+        if(stream.IsReading == true)
+        {
+            f_Have = (bool)stream.ReceiveNext();
+            f_Button = (int)stream.ReceiveNext();
+        }
+        */
 
         if(f_Have == false)
         {
