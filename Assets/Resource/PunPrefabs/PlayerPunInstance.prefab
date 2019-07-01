@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1902417521470002342}
   - component: {fileID: 1902417521470002341}
   - component: {fileID: 1902417521470002340}
+  - component: {fileID: 5460931895581281416}
   m_Layer: 0
   m_Name: hand_trigger
   m_TagString: Untagged
@@ -91,6 +92,28 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5460931895581281416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902417521470002346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  viewIdField: 0
+  InstantiationId: 7
+  isRuntimeInstantiated: 0
 --- !u!1 &1902417521817131606
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,6 +196,7 @@ GameObject:
   - component: {fileID: 1902417522004294702}
   - component: {fileID: 1902417522004294701}
   - component: {fileID: 1902417522004294700}
+  - component: {fileID: 3881523494691979549}
   m_Layer: 0
   m_Name: HeadTarget
   m_TagString: Untagged
@@ -252,6 +276,28 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3881523494691979549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902417522004294738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  viewIdField: 0
+  InstantiationId: 8
+  isRuntimeInstantiated: 0
 --- !u!1 &1902417522026229657
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,7 +353,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 1902417522026229658}
   viewIdField: 0
-  InstantiationId: 2
+  InstantiationId: 5
   isRuntimeInstantiated: 0
 --- !u!114 &1902417522026229658
 MonoBehaviour:
@@ -447,7 +493,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 1902417522878287986}
   viewIdField: 0
-  InstantiationId: 5
+  InstantiationId: 2
   isRuntimeInstantiated: 0
 --- !u!114 &1902417522878287986
 MonoBehaviour:
@@ -476,6 +522,7 @@ GameObject:
   - component: {fileID: 1902417523517024036}
   - component: {fileID: 1902417523517024043}
   - component: {fileID: 1902417523517024042}
+  - component: {fileID: 3289115138717328439}
   m_Layer: 0
   m_Name: hand_trigger
   m_TagString: Untagged
@@ -555,3 +602,25 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3289115138717328439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902417523517024040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  viewIdField: 0
+  InstantiationId: 6
+  isRuntimeInstantiated: 0

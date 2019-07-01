@@ -30,6 +30,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         Debug.Log("join");
+        ObjectInstanceCreate();
     }
 
     public void ObjectInstanceCreate()
