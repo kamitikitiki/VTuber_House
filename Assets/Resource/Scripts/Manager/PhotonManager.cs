@@ -30,8 +30,12 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         Debug.Log("join");
-        // マッチング後、ランダムな位置に自分自身のネットワークオブジェクトを生成する
-        //var v = new Vector3(Random.Range(-3f, 3f), Random.Range(-3f, 3f));
-        //PhotonNetwork.Instantiate("GamePlayer", v, Quaternion.identity);
+    }
+
+    public void ObjectInstanceCreate()
+    {
+        Vector3 pos = Vector3.zero;
+        Quaternion qua = new Quaternion(0, 0, 0, 1);
+        PhotonNetwork.Instantiate("PunPrefabs/PlayerPunInstance", pos, qua);
     }
 }
