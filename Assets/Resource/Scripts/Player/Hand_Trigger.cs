@@ -55,9 +55,11 @@ public class Hand_Trigger : MonoBehaviour
                 ItemInterface src = other.GetComponent<ItemInterface>();
                 if(src.IsHave() == false)
                 {
-                    src.SetHave();
-                    HaveItem = other.gameObject;
-                    Joint.connectedBody = other.gameObject.GetComponent<Rigidbody>();
+                    if(src.SetHave())
+                    {
+                        HaveItem = other.gameObject;
+                        Joint.connectedBody = other.gameObject.GetComponent<Rigidbody>();
+                    }
                 }
             }
         }

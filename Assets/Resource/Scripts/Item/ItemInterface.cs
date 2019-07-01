@@ -10,12 +10,21 @@ public class ItemInterface : MonoBehaviourPunCallbacks, IPunObservable
     //継承先でも同期される変数
 
     //--アイテムが持たれているかどうかのフラグ true 持つ　false 持ってない
-    public bool f_Have;
+    public bool f_Have = false;
     public bool IsHave() { return f_Have; }
-    public void SetHave()
+    public bool SetHave()
     {
-        f_Have = true;
-        gameObject.GetComponent<Rigidbody>().useGravity = false;
+        if(GetComponent<PhotonView>().IsMine)
+        {
+            f_Have = true;
+            gameObject.GetComponent<Rigidbody>().useGravity = false;
+            return true;
+        }
+        else
+        {
+            GetComponent<PhotonView>().RequestOwnership();
+            return false;
+        }
     }
     public void SetRelease()
     {
@@ -29,7 +38,6 @@ public class ItemInterface : MonoBehaviourPunCallbacks, IPunObservable
 
     virtual public void Init()
     {
-        f_Have = false;
     }
 
     virtual public int OnButton()
@@ -45,24 +53,24 @@ public class ItemInterface : MonoBehaviourPunCallbacks, IPunObservable
     // データを送受信するメソッド
     void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        /*
-        stream.SendNext(f_Have);
-        stream.SendNext(f_Button);
-
-        if(stream.IsReading == true)
+        if (stream.IsWriting)
         {
-            f_Have = (bool)stream.ReceiveNext();
-            f_Button = (int)stream.ReceiveNext();
-        }
-        */
-
-        if(f_Have == false)
-        {
-            gameObject.GetComponent<Rigidbody>().useGravity = true;
+            stream.SendNext(f_Have);
+            stream.SendNext(f_Button);
         }
         else
         {
-            gameObject.GetComponent<Rigidbody>().useGravity = false;
+            f_Have = (bool)stream.ReceiveNext();
+            f_Button = (int)stream.ReceiveNext();
+
+            if (f_Have == false && gameObject.GetComponent<Rigidbody>().useGravity == false)
+            {
+                gameObject.GetComponent<Rigidbody>().useGravity = true;
+            }
+            else if(gameObject.GetComponent<Rigidbody>().useGravity == true)
+            {
+                gameObject.GetComponent<Rigidbody>().useGravity = false;
+            }
         }
     }
 }
