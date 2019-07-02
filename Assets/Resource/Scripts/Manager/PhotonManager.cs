@@ -37,15 +37,11 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     public void ObjectInstanceCreate()
     {
-        if(UsePlayerName != null)
+        if(UsePlayerName.Length != 0)
         {
             Vector3 pos = Vector3.zero;
             Quaternion qua = new Quaternion(0, 0, 0, 1);
             PhotonNetwork.Instantiate(UsePlayerName, pos, qua);
-        }
-        else
-        {
-            GameObject.Find("HandCamera").transform.GetChild(1).GetComponent<Camera>().targetDisplay = 1;
         }
     }
 }
