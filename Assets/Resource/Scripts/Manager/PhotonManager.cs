@@ -6,6 +6,8 @@ using Photon.Realtime;
 
 public class PhotonManager : MonoBehaviourPunCallbacks
 {
+    public string UsePlayerName = null;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,8 +37,11 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     public void ObjectInstanceCreate()
     {
-        Vector3 pos = Vector3.zero;
-        Quaternion qua = new Quaternion(0, 0, 0, 1);
-        PhotonNetwork.Instantiate("PunPrefabs/VR_Player", pos, qua);
+        if(UsePlayerName != null)
+        {
+            Vector3 pos = Vector3.zero;
+            Quaternion qua = new Quaternion(0, 0, 0, 1);
+            PhotonNetwork.Instantiate(UsePlayerName, pos, qua);
+        }
     }
 }
