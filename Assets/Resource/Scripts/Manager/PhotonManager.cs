@@ -37,6 +37,6 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     {
         Vector3 pos = Vector3.zero;
         Quaternion qua = new Quaternion(0, 0, 0, 1);
-        //PhotonNetwork.Instantiate("PunPrefabs/PlayerPunInstance", pos, qua);
+        PhotonNetwork.Instantiate("PunPrefabs/VR_Player", pos, qua);
     }
 }
