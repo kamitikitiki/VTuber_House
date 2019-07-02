@@ -10,7 +10,7 @@ public class ItemInterface : MonoBehaviourPunCallbacks, IPunObservable
     //継承先でも同期される変数
 
     //--アイテムが持たれているかどうかのフラグ true 持つ　false 持ってない
-    public bool f_Have = false;
+    private bool f_Have = false;
     public bool IsHave() { return f_Have; }
     public bool SetHave()
     {
