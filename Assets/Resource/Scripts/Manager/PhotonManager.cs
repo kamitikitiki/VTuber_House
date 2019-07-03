@@ -20,7 +20,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         }
         else
         {
-            PlayerName = "VR_Player";
+            PlayerName = "player";
         }
 
         PhotonNetwork.ConnectUsingSettings();
