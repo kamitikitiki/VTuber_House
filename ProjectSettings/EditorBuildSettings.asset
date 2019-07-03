@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/PhotonTest.unity
-    guid: 2af1582f470a2e74e81649ce4a5baf77
+    path: Assets/Scenes/Lobby.unity
+    guid: 1a478c83197829444aebbae493948f9a
+  - enabled: 1
+    path: Assets/Scenes/MainHouse.unity
+    guid: e3ca8f198227e594db13c692e7875349
   m_configObjects: {}

@@ -3,14 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.UI;
 
 public class PhotonManager : MonoBehaviourPunCallbacks
 {
-    public string UsePlayerName = null;
+    string PlayerName;
 
     // Start is called before the first frame update
     void Start()
     {
+        GameObject canvas = GameObject.Find("Canvas");
+        if(canvas != null)
+        {
+            PlayerName = canvas.gameObject.transform.GetChild(0).GetComponent<InputField>().text;
+            Destroy(canvas);
+        }
+        else
+        {
+            PlayerName = "VR_Player";
+        }
+
         PhotonNetwork.ConnectUsingSettings();
     }
 
@@ -37,11 +49,12 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     public void ObjectInstanceCreate()
     {
-        if(UsePlayerName.Length != 0)
+        if (PlayerName.Length != 0)
         {
             Vector3 pos = Vector3.zero;
             Quaternion qua = new Quaternion(0, 0, 0, 1);
-            PhotonNetwork.Instantiate(UsePlayerName, pos, qua);
+            string createVrName = "PunPrefabs/" + PlayerName;
+            PhotonNetwork.Instantiate(createVrName, pos, qua);
         }
     }
 }

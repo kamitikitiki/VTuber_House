@@ -10,6 +10,7 @@ public class PlayerVRManager : MonoBehaviour
     {
         if(GetComponent<PhotonView>().IsMine)
         {
+
             //左手取得とスクリプトOn
             transform.GetChild(0).GetComponent<SteamVR_Behaviour_Pose>().enabled = true;
             //右手取得とスクリプトOn
