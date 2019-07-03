@@ -51,6 +51,11 @@ public class RagdollManager : MonoBehaviour
         basePos = Camera.transform.position;
     }
 
+    private void OnEnable()
+    {
+        basePos = Camera.transform.position;
+    }
+
     // Update is called once per frame
     void Update()
     {

@@ -49,7 +49,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     public void ObjectInstanceCreate()
     {
-        if (PlayerName.Length != 0)
+        if (PlayerName.Length != 0 && PlayerName != "camera")
         {
             Vector3 pos = Vector3.zero;
             Quaternion qua = new Quaternion(0, 0, 0, 1);
