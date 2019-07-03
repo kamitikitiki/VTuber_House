@@ -27,31 +27,29 @@ public class PlayerVRManager : MonoBehaviourPunCallbacks
             Quaternion qua = new Quaternion(0, 0, 0, 1);
             playerModel = PhotonNetwork.Instantiate("PunPrefabs/" + ModelName, pos, qua);
         }
-        else
-        {
-            Invoke("SearchModelObject", 1.0f);
-        }
 
-        if (playerModel != null)
-        {
-            //モデルに設定するオブジェクト取得
-            GameObject hand_L = transform.GetChild(0).gameObject;
-            GameObject hand_R = transform.GetChild(1).gameObject;
-            GameObject camera = transform.GetChild(2).gameObject;
-
-            //ラグドールにカメラ設定
-            playerModel.GetComponent<RagdollManager>().Camera = camera;
-
-            //IK設定
-            VRIK ik = playerModel.GetComponent<VRIK>();
-            ik.solver.spine.headTarget = camera.transform.GetChild(0);
-            ik.solver.leftArm.target = hand_L.transform.GetChild(0);
-            ik.solver.rightArm.target = hand_R.transform.GetChild(0);
-        }
+        Invoke("PlayerModelSettings", 3.0f);
     }
 
-    private void SearchModelObject()
+    private void PlayerModelSettings()
     {
-        playerModel = transform.Find(ModelName).gameObject;
+        if(playerModel == null)
+        {
+            playerModel = transform.Find(ModelName).gameObject;
+        }
+
+        //モデルに設定するオブジェクト取得
+        GameObject hand_L = transform.GetChild(0).gameObject;
+        GameObject hand_R = transform.GetChild(1).gameObject;
+        GameObject camera = transform.GetChild(2).gameObject;
+
+        //ラグドールにカメラ設定
+        playerModel.GetComponent<RagdollManager>().Camera = camera;
+
+        //IK設定
+        VRIK ik = playerModel.GetComponent<VRIK>();
+        ik.solver.spine.headTarget = camera.transform.GetChild(0);
+        ik.solver.leftArm.target = hand_L.transform.GetChild(0);
+        ik.solver.rightArm.target = hand_R.transform.GetChild(0);
     }
 }
