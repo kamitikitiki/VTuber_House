@@ -35,7 +35,7 @@ public class PlayerVRManager : MonoBehaviourPunCallbacks
     {
         if(playerModel == null)
         {
-            playerModel = transform.Find(ModelName).gameObject;
+            playerModel = transform.Find(ModelName + "(Clone)").gameObject;
         }
 
         //モデルに設定するオブジェクト取得
