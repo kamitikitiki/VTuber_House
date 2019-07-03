@@ -9,10 +9,10 @@ public class PlayerVRManager : MonoBehaviourPunCallbacks
 {
 
     public string ModelName;
+    GameObject playerModel = null;
 
     public override void OnEnable()
     {
-        GameObject playerModel = null;
         if (GetComponent<PhotonView>().IsMine)
         {
             //左手取得とスクリプトOn
@@ -27,8 +27,12 @@ public class PlayerVRManager : MonoBehaviourPunCallbacks
             Quaternion qua = new Quaternion(0, 0, 0, 1);
             playerModel = PhotonNetwork.Instantiate("PunPrefabs/" + ModelName, pos, qua);
         }
+        else
+        {
+            Invoke("SearchModelObject", 1.0f);
+        }
 
-        if(playerModel != null)
+        if (playerModel != null)
         {
             //モデルに設定するオブジェクト取得
             GameObject hand_L = transform.GetChild(0).gameObject;
@@ -44,5 +48,10 @@ public class PlayerVRManager : MonoBehaviourPunCallbacks
             ik.solver.leftArm.target = hand_L.transform.GetChild(0);
             ik.solver.rightArm.target = hand_R.transform.GetChild(0);
         }
+    }
+
+    private void SearchModelObject()
+    {
+        playerModel = transform.Find(ModelName).gameObject;
     }
 }
