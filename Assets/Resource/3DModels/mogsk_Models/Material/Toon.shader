@@ -7,12 +7,16 @@ Shader "Custom/Toon"
         _Color ("Main Color", Color) = (1,1,1,1)
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
 		_RampTex ("Ramp", 2D) = "white"{}
+
+		_Outline("outline", Range(0,0.1)) = 0
+		_OutlineColor("OLColor",Color) = (1,1,1,1)
     }
 
     SubShader
     {
         Tags { "RenderType"="Opaque" }
         LOD 200
+		Cull Front
 
         CGPROGRAM
         #pragma surface surf ToonRamp
