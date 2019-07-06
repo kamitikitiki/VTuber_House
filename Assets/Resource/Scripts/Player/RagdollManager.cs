@@ -30,7 +30,8 @@ public class RagdollManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (SteamVR_Actions.default_GrabGrip.GetStateDown(SteamVR_Input_Sources.LeftHand))
+        if (SteamVR_Actions.default_GrabGrip.GetStateDown(SteamVR_Input_Sources.LeftHand)
+            && m_PhotonView.IsMine == true)
         {
             if(Head.GetComponent<Rigidbody>().isKinematic == true)
             {
