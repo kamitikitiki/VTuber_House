@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Setting_2disp : MonoBehaviour
 {
+    private int m_Count = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -11,11 +12,24 @@ public class Setting_2disp : MonoBehaviour
         {
             Display.displays[i].Activate();
         }
+        m_Count = 120;
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        
+        if (m_Count < 0) { }
+        else if (m_Count == 0)
+        {
+            if (GetComponent<Camera>().enabled == false)
+            {
+                GetComponent<Camera>().enabled = true;
+            }
+            m_Count--;
+        }
+        else if(m_Count >= 1)
+        {
+            m_Count--;
+        }
     }
 }
