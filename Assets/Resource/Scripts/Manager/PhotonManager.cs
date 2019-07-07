@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class PhotonManager : MonoBehaviourPunCallbacks
 {
-    string PlayerName;
+    public string PlayerName;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +18,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
             PlayerName = canvas.gameObject.transform.GetChild(0).GetComponent<InputField>().text;
             Destroy(canvas);
         }
-        else
+        else if(PlayerName == null)
         {
             PlayerName = "player";
         }
