@@ -8,6 +8,7 @@ using Photon.Pun;
 public class RagdollManager : MonoBehaviour
 {
     public GameObject PlayerRig;
+    public GameObject Camera;
     public GameObject Head;
     public GameObject[] RagdollBone;
 
@@ -103,6 +104,8 @@ public class RagdollManager : MonoBehaviour
         }
 
         GetComponent<VRIK>().enabled = false;
+
+
     }
 
     [PunRPC]

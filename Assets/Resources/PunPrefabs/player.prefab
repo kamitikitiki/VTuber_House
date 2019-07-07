@@ -539,7 +539,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 5837409091533323732}
   viewIdField: 0
-  InstantiationId: 14
+  InstantiationId: 16
   isRuntimeInstantiated: 0
 --- !u!114 &5837409091533323732
 MonoBehaviour:
@@ -687,7 +687,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 9037875522420227579}
   viewIdField: 0
-  InstantiationId: 11
+  InstantiationId: 13
   isRuntimeInstantiated: 0
 --- !u!114 &9037875522420227579
 MonoBehaviour:
@@ -819,7 +819,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 7094521518792335414}
   viewIdField: 0
-  InstantiationId: 10
+  InstantiationId: 12
   isRuntimeInstantiated: 0
 --- !u!114 &7094521518792335414
 MonoBehaviour:
@@ -1139,7 +1139,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 2028424587488631760}
   viewIdField: 0
-  InstantiationId: 16
+  InstantiationId: 18
   isRuntimeInstantiated: 0
 --- !u!114 &3336988222969369183
 MonoBehaviour:
@@ -1267,7 +1267,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 5823136810456115396}
   viewIdField: 0
-  InstantiationId: 13
+  InstantiationId: 15
   isRuntimeInstantiated: 0
 --- !u!114 &5823136810456115396
 MonoBehaviour:
@@ -1431,7 +1431,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 2084188854574017710}
   viewIdField: 0
-  InstantiationId: 9
+  InstantiationId: 11
   isRuntimeInstantiated: 0
 --- !u!1 &2192059231546606462
 GameObject:
@@ -1752,7 +1752,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 713845897}
   viewIdField: 0
-  InstantiationId: 19
+  InstantiationId: 3
   isRuntimeInstantiated: 0
 --- !u!114 &713845897
 MonoBehaviour:
@@ -1901,7 +1901,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 3078453708101739939}
   viewIdField: 0
-  InstantiationId: 8
+  InstantiationId: 10
   isRuntimeInstantiated: 0
 --- !u!114 &3078453708101739939
 MonoBehaviour:
@@ -2050,7 +2050,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 713845899}
   viewIdField: 0
-  InstantiationId: 18
+  InstantiationId: 4
   isRuntimeInstantiated: 0
 --- !u!114 &713845899
 MonoBehaviour:
@@ -2121,7 +2121,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 0}
   viewIdField: 0
-  InstantiationId: 17
+  InstantiationId: 19
   isRuntimeInstantiated: 0
 --- !u!1 &3654140294617906599
 GameObject:
@@ -2492,7 +2492,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 55
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -2524,7 +2524,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 5330006024172026833}
   viewIdField: 0
-  InstantiationId: 12
+  InstantiationId: 14
   isRuntimeInstantiated: 0
 --- !u!114 &5330006024172026833
 MonoBehaviour:
@@ -2672,7 +2672,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 7588373298728866138}
   viewIdField: 0
-  InstantiationId: 7
+  InstantiationId: 9
   isRuntimeInstantiated: 0
 --- !u!114 &7588373298728866138
 MonoBehaviour:
@@ -2838,7 +2838,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 4461938380846012657}
   viewIdField: 0
-  InstantiationId: 6
+  InstantiationId: 8
   isRuntimeInstantiated: 0
 --- !u!1 &5781882078296324712
 GameObject:
@@ -3275,6 +3275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerRig: {fileID: 1776936474791428572}
+  Camera: {fileID: 4995957034507503550}
   Head: {fileID: 9173641459058587322}
   RagdollBone:
   - {fileID: 1512055678897389165}
@@ -3307,7 +3308,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 0}
   viewIdField: 0
-  InstantiationId: 15
+  InstantiationId: 17
   isRuntimeInstantiated: 0
 --- !u!1 &6088291368747850437
 GameObject:
@@ -3823,7 +3824,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 3716012847392121456}
   viewIdField: 0
-  InstantiationId: 5
+  InstantiationId: 7
   isRuntimeInstantiated: 0
 --- !u!1 &9136002941012379751
 GameObject:
@@ -3972,7 +3973,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 7893094589303030256}
   viewIdField: 0
-  InstantiationId: 4
+  InstantiationId: 6
   isRuntimeInstantiated: 0
 --- !u!1 &9173641459058587322
 GameObject:
@@ -4104,7 +4105,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 6909592223454827102}
   viewIdField: 0
-  InstantiationId: 3
+  InstantiationId: 5
   isRuntimeInstantiated: 0
 --- !u!114 &6909592223454827102
 MonoBehaviour:
