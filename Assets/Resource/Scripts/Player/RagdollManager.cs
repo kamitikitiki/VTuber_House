@@ -15,64 +15,82 @@ public class RagdollManager : MonoBehaviour
     Quaternion baseRota;
     Photon.Pun.PhotonView m_PhotonView;
 
+    private int m_OnRagdollCount;
+
     // Start is called before the first frame update
     void Start()
     {
         basePos = PlayerRig.transform.position;
+        m_OnRagdollCount = 0;
     }
 
     private void OnEnable()
     {
-        //basePos = Camera.transform.position;
+        basePos = PlayerRig.transform.position;
         m_PhotonView = GetComponent<PhotonView>();
+        m_OnRagdollCount = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (SteamVR_Actions.default_GrabGrip.GetStateDown(SteamVR_Input_Sources.LeftHand)
-            && m_PhotonView.IsMine == true)
+        if(m_PhotonView.IsMine)
         {
-            if(Head.GetComponent<Rigidbody>().isKinematic == true)
+            if(m_OnRagdollCount >= 1)
             {
-                OnRagdoll();
-                m_PhotonView.RPC("OnRagdoll", RpcTarget.AllViaServer);
-            }
-            else
-            {
-                OffRagdoll();
-                m_PhotonView.RPC("OffRagdoll", RpcTarget.AllViaServer);
+                m_OnRagdollCount--;
+                if(m_OnRagdollCount == 0)
+                {
+                    m_PhotonView.RPC("OffRagdoll", RpcTarget.AllViaServer);
+                }
             }
         }
     }
 
     private void LateUpdate()
     {
-        if (Head.GetComponent<Rigidbody>().isKinematic == false)
+        if (m_PhotonView.IsMine)
         {
-            var trackingPos = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.CenterEye);
+            if (Head.GetComponent<Rigidbody>().isKinematic == false)
+            {
+                var trackingPos = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.CenterEye);
 
-            var scale = transform.localScale;
-            trackingPos = new Vector3(
-                trackingPos.x * scale.x,
-                trackingPos.y * scale.y,
-                trackingPos.z * scale.z
-            );
+                var scale = transform.localScale;
+                trackingPos = new Vector3(
+                    trackingPos.x * scale.x,
+                    trackingPos.y * scale.y,
+                    trackingPos.z * scale.z
+                );
 
-            PlayerRig.transform.rotation = Head.transform.rotation;
+                PlayerRig.transform.rotation = Head.transform.rotation;
 
-            // 回転
-            trackingPos = PlayerRig.transform.rotation * trackingPos;
+                // 回転
+                trackingPos = PlayerRig.transform.rotation * trackingPos;
 
-            // 固定したい位置から hmd の位置を
-            // 差し引いて実質 hmd の移動を無効化する
-            PlayerRig.transform.position = Head.transform.position + basePos - trackingPos;
+                // 固定したい位置から hmd の位置を
+                // 差し引いて実質 hmd の移動を無効化する
+                PlayerRig.transform.position = Head.transform.position + basePos - trackingPos;
+            }
+        }
+    }
+
+    //外部からラグドールを設定する関数
+    public void SetRagdoll(bool active, int onCount)
+    {
+        if(active)
+        {
+            m_PhotonView.RPC("OnRagdoll", RpcTarget.AllViaServer);
+            m_OnRagdollCount = onCount;
+        }
+        else
+        {
+            m_PhotonView.RPC("OffRagdoll", RpcTarget.AllViaServer);
         }
     }
 
     //新規実装関数
     [PunRPC]
-    public void OnRagdoll()
+    private void OnRagdoll()
     {
         Head.GetComponent<Rigidbody>().useGravity = true;
         Head.GetComponent<Rigidbody>().isKinematic = false;
@@ -85,11 +103,10 @@ public class RagdollManager : MonoBehaviour
         }
 
         GetComponent<VRIK>().enabled = false;
-
     }
 
     [PunRPC]
-    public void OffRagdoll()
+    private void OffRagdoll()
     {
         Head.GetComponent<Rigidbody>().useGravity = false;
         Head.GetComponent<Rigidbody>().isKinematic = true;
@@ -103,5 +120,6 @@ public class RagdollManager : MonoBehaviour
 
         GetComponent<VRIK>().enabled = true;
         PlayerRig.transform.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
+        m_OnRagdollCount = 0;
     }
 }
