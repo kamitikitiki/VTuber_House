@@ -57,6 +57,17 @@ public class Harituke : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks
             m_NextRotateCount--;
             //m_RotateCount--;
         }
+
+        if(Input.GetKey(KeyCode.Space))
+        {
+            m_View.RequestOwnership();
+            Debug.Log("req");
+        }
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            Debug.Log(m_View.IsMine);
+        }
     }
 
 
@@ -108,7 +119,6 @@ public class Harituke : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks
     //Takeover時に呼ばれる
     public void OnOwnershipTransfered(PhotonView targetView, Player previousOwner)
     {
-        throw new System.NotImplementedException();
     }
 }
 

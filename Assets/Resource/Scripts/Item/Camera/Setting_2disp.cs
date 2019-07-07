@@ -12,7 +12,7 @@ public class Setting_2disp : MonoBehaviour
         {
             Display.displays[i].Activate();
         }
-        m_Count = 120;
+        m_Count = 180;
     }
 
     // Update is called once per frame
