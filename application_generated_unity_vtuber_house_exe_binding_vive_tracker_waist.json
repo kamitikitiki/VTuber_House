@@ -103,6 +103,10 @@
             {
                "output" : "/actions/default/in/pose",
                "path" : "/user/foot/right/pose/raw"
+            },
+            {
+               "output" : "/actions/default/in/pose",
+               "path" : "/user/waist/pose/raw"
             }
          ],
          "skeleton" : [
@@ -266,9 +270,9 @@
       }
    },
    "category" : "steamvr_input",
-   "controller_type" : "vive_tracker_right_foot",
+   "controller_type" : "vive_tracker_waist",
    "description" : "",
-   "name" : "Vive Tracker on Right Foot用のVTuber_House [Testing]設定",
+   "name" : "Vive Tracker on Waist用のVTuber_House [Testing]設定",
    "options" : {},
    "simulated_actions" : []
 }
