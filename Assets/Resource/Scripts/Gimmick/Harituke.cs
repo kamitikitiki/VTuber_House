@@ -67,10 +67,6 @@ public class Harituke : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks
             //起動開始
             if(m_MoveFlag == 1)
             {
-                m_JoinHand_L.connectedBody = m_Hand_L.GetComponent<Rigidbody>();
-                m_JoinHand_R.connectedBody = m_Hand_R.GetComponent<Rigidbody>();
-                m_JoinFoot_L.connectedBody = m_Foot_L.GetComponent<Rigidbody>();
-                m_JoinFoot_R.connectedBody = m_Foot_R.GetComponent<Rigidbody>();
                 m_Player.transform.GetChild(1).GetComponent<RagdollManager>().SetRagdoll(true, 0);
             }
             if (m_RotateCount > 0)
@@ -138,6 +134,12 @@ public class Harituke : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks
         m_Hand_R.SetPositionAndRotation(m_SetHand_R.position, m_SetHand_R.rotation);
         m_Foot_L.SetPositionAndRotation(m_SetFoot_L.position, m_SetFoot_L.rotation);
         m_Foot_R.SetPositionAndRotation(m_SetFoot_R.position, m_SetFoot_R.rotation);
+        m_JoinHand_L.connectedBody = m_Hand_L.GetComponent<Rigidbody>();
+        m_JoinHand_R.connectedBody = m_Hand_R.GetComponent<Rigidbody>();
+        m_JoinFoot_L.connectedBody = m_Foot_L.GetComponent<Rigidbody>();
+        m_JoinFoot_R.connectedBody = m_Foot_R.GetComponent<Rigidbody>();
+
+        m_RotateCount = 300;
     }
 
     private void SetNextRotate()
