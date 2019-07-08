@@ -1294,11 +1294,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1287641980147736461, guid: 4e04f6785d3d5ae48849e2d57c1805ef,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 5627585905164623131, guid: 4e04f6785d3d5ae48849e2d57c1805ef,
         type: 3}
       propertyPath: m_Mesh
@@ -1314,15 +1309,20 @@ PrefabInstance:
       propertyPath: InstantiationId
       value: 23
       objectReference: {fileID: 0}
-    - target: {fileID: 1446884223837740283, guid: 4e04f6785d3d5ae48849e2d57c1805ef,
+    - target: {fileID: 1287641980147736461, guid: 4e04f6785d3d5ae48849e2d57c1805ef,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253376625939783729, guid: 4e04f6785d3d5ae48849e2d57c1805ef,
         type: 3}
       propertyPath: viewIdField
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1446884223837740283, guid: 4e04f6785d3d5ae48849e2d57c1805ef,
+    - target: {fileID: 5253376625939783729, guid: 4e04f6785d3d5ae48849e2d57c1805ef,
         type: 3}
       propertyPath: InstantiationId
-      value: 22
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5880865556393290735, guid: 4e04f6785d3d5ae48849e2d57c1805ef,
         type: 3}
@@ -1334,15 +1334,15 @@ PrefabInstance:
       propertyPath: InstantiationId
       value: 21
       objectReference: {fileID: 0}
-    - target: {fileID: 5253376625939783729, guid: 4e04f6785d3d5ae48849e2d57c1805ef,
+    - target: {fileID: 1446884223837740283, guid: 4e04f6785d3d5ae48849e2d57c1805ef,
         type: 3}
       propertyPath: viewIdField
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5253376625939783729, guid: 4e04f6785d3d5ae48849e2d57c1805ef,
+    - target: {fileID: 1446884223837740283, guid: 4e04f6785d3d5ae48849e2d57c1805ef,
         type: 3}
       propertyPath: InstantiationId
-      value: 20
+      value: 22
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e04f6785d3d5ae48849e2d57c1805ef, type: 3}
