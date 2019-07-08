@@ -100,6 +100,8 @@ public class Harituke : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks
                     m_DirayCount = 120;
                     m_RotateCount = RotateEndCount;
                 }
+
+                Debug.Log("move1");
             }
             else if(m_MoveFlag == 2)
             {
@@ -108,6 +110,7 @@ public class Harituke : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks
                 {
                     m_MoveFlag = 3;
                 }
+                Debug.Log("move2");
             }
             else if(m_MoveFlag == 3)
             {
@@ -131,7 +134,14 @@ public class Harituke : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks
                 {
                     m_MoveFlag = 4;
                     m_DirayCount = 120;
+                    m_Player.transform.GetChild(1).GetComponent<RagdollManager>().SetRagdoll(true, 240);
+                    m_JoinHead.connectedBody = null;
+                    m_JoinHand_L.connectedBody = null;
+                    m_JoinHand_R.connectedBody = null;
+                    m_JoinFoot_L.connectedBody = null;
+                    m_JoinFoot_R.connectedBody = null;
                 }
+                Debug.Log("move3");
             }
             else if (m_MoveFlag == 4)
             {
@@ -143,7 +153,6 @@ public class Harituke : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks
             }
             else if(m_MoveFlag == 5)
             {
-                //m_Player.transform.GetChild(1).GetComponent<RagdollManager>().SetRagdoll(true, 180);
                 transform.position = StartPosition;
                 transform.rotation = Quaternion.identity;
                 chill.position = transform.position;
@@ -161,14 +170,16 @@ public class Harituke : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.transform.tag == "Player")
+        if (m_MoveFlag == 0)
         {
-            if(other.transform.root.gameObject.GetComponent<PhotonView>().IsMine)
+            if (other.transform.tag == "Player")
             {
-                m_View.RequestOwnership();
-                m_Player = other.transform.root.gameObject;
+                if (other.transform.root.gameObject.GetComponent<PhotonView>().IsMine)
+                {
+                    m_View.RequestOwnership();
+                    m_Player = other.transform.root.gameObject;
+                }
             }
-  
         }
     }
 
@@ -221,7 +232,7 @@ public class Harituke : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks
         m_JoinFoot_L.connectedBody = m_Foot_L.GetComponent<Rigidbody>();
         m_JoinFoot_R.connectedBody = m_Foot_R.GetComponent<Rigidbody>();
 
-        m_StartCount = StartCount;
+        m_StartCount = 0;
     }
 
     private void SetNextRotate()
