@@ -27,6 +27,23 @@ public class PlayerVRManager : MonoBehaviourPunCallbacks
     {
         MyStateInit();
         m_IsInitialize = true;
+
+        if (m_PhotonView.IsMine)
+        {
+            GameObject.Find("MainMesh").layer = LayerMask.NameToLayer("MyPlayer");
+            GameObject.Find("Wear").layer = LayerMask.NameToLayer("MyPlayer");
+            GameObject.Find("SubMesh").layer = LayerMask.NameToLayer("SubMesh");
+            //GameObject.Find("hand_trigger").layer = LayerMask.NameToLayer("SubMesh");
+            //GameObject.Find("Controller (right)").layer = LayerMask.NameToLayer("SubMesh");
+        }
+        else
+        {
+            GameObject.Find("MainMesh").layer = LayerMask.NameToLayer("OthersPlayer");
+            GameObject.Find("Wear").layer = LayerMask.NameToLayer("OthersPlayer");
+            GameObject.Find("SubMesh").layer = LayerMask.NameToLayer("SubMesh");
+            //GameObject.Find("hand_trigger").layer = LayerMask.NameToLayer("SubMesh");
+            //GameObject.Find("Controller (right)").layer = LayerMask.NameToLayer("SubMesh");
+        }
     }
 
     public override void OnEnable()
