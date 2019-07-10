@@ -9,7 +9,9 @@ public class PlayerVRManager : MonoBehaviourPunCallbacks
 {
     private bool m_IsInitialize = false;
 
-    public string ModelName;
+    public GameObject MainMesh;
+    public GameObject Wear;
+    public GameObject SubMesh;
 
     //pun
     private PhotonView m_PhotonView;
@@ -23,19 +25,9 @@ public class PlayerVRManager : MonoBehaviourPunCallbacks
         m_TachPad = SteamVR_Actions.default_TachPad;
         if (m_PhotonView.IsMine)
         {
-            GameObject.Find("MainMesh").layer = LayerMask.NameToLayer("MyPlayer");
-            GameObject.Find("Wear").layer = LayerMask.NameToLayer("MyPlayer");
-            GameObject.Find("SubMesh").layer = LayerMask.NameToLayer("SubMesh");
-            //GameObject.Find("hand_trigger").layer = LayerMask.NameToLayer("SubMesh");
-            //GameObject.Find("Controller (right)").layer = LayerMask.NameToLayer("SubMesh");
-        }
-        else
-        {
-            GameObject.Find("MainMesh").layer = LayerMask.NameToLayer("OthersPlayer");
-            GameObject.Find("Wear").layer = LayerMask.NameToLayer("OthersPlayer");
-            GameObject.Find("SubMesh").layer = LayerMask.NameToLayer("SubMesh");
-            //GameObject.Find("hand_trigger").layer = LayerMask.NameToLayer("SubMesh");
-            //GameObject.Find("Controller (right)").layer = LayerMask.NameToLayer("SubMesh");
+            MainMesh.layer = LayerMask.NameToLayer("MyPlayer");
+            Wear.layer = LayerMask.NameToLayer("MyPlayer");
+            SubMesh.layer = LayerMask.NameToLayer("SubMesh");
         }
     }
 
