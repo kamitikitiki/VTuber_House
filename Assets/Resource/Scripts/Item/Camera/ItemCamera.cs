@@ -14,7 +14,7 @@ public class ItemCamera : ItemInterface
 
     public override int OnButton()
     {
-        f_Button = (f_Button + 1) % 2;
+        f_Button = (f_Button + 1) % 3;
 
         DisplayChange();
 
@@ -33,6 +33,9 @@ public class ItemCamera : ItemInterface
         transform.GetChild(2).transform.GetComponent<Photon.Pun.PhotonView>().RequestOwnership();
         Vector3 rotate = view.transform.eulerAngles;
 
+        Debug.Log(f_Button);
+        Debug.Log(rotate);
+
         switch (f_Button)
         {
             case 0:
@@ -45,6 +48,12 @@ public class ItemCamera : ItemInterface
                 {
                     transform.GetChild(1).gameObject.SetActive(true);
                     transform.GetChild(2).gameObject.SetActive(true);
+                    view.transform.localRotation = Quaternion.Euler(90, 180, 0);
+                }
+                break;
+            case 2:
+                {
+                    view.transform.localRotation = Quaternion.Euler(90, 0, 0);
                 }
                 break;
             default:
