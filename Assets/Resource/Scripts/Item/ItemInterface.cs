@@ -11,6 +11,7 @@ public class ItemInterface : MonoBehaviourPunCallbacks, IPunObservable
 
     //--アイテムが持たれているかどうかのフラグ true 持つ　false 持ってない
     private bool f_Have = false;
+    virtual protected void IsChangeHave() { }
     public bool IsHave() { return f_Have; }
     public bool SetHave()
     {
@@ -35,6 +36,7 @@ public class ItemInterface : MonoBehaviourPunCallbacks, IPunObservable
 
     //--パッドボタンを押したときの変数
     protected int f_Button;
+    virtual protected void IsChangeButton() { }
 
     virtual public void Init()
     {
@@ -60,8 +62,11 @@ public class ItemInterface : MonoBehaviourPunCallbacks, IPunObservable
         }
         else
         {
-            f_Have = (bool)stream.ReceiveNext();
-            f_Button = (int)stream.ReceiveNext();
+            bool have = (bool)stream.ReceiveNext();
+            int button = (int)stream.ReceiveNext();
+
+            if(f_Have != have) { f_Have = have; IsChangeHave(); }
+            if (f_Button != button) { f_Button = button; IsChangeButton(); }
 
             if (f_Have == false && gameObject.GetComponent<Rigidbody>().useGravity == false)
             {

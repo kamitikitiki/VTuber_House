@@ -182,7 +182,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 2108118600069745888}
   viewIdField: 0
-  InstantiationId: 4
+  InstantiationId: 1
   isRuntimeInstantiated: 0
 --- !u!114 &2108118600069745888
 MonoBehaviour:
@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 1644740214950119885}
   m_Layer: 0
   m_Name: HandCamera
-  m_TagString: Untagged
+  m_TagString: HaveItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -336,7 +336,7 @@ MonoBehaviour:
   - {fileID: 1644740214950119885}
   - {fileID: 251882569882789591}
   viewIdField: 0
-  InstantiationId: 1
+  InstantiationId: 4
   isRuntimeInstantiated: 0
 --- !u!114 &650820032783905092
 MonoBehaviour:

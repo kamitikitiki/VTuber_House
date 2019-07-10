@@ -28,6 +28,8 @@ public class PlayerVRManager : MonoBehaviourPunCallbacks
         MyStateInit();
         m_IsInitialize = true;
 
+        Debug.Log("start");
+
         if (m_PhotonView.IsMine)
         {
             GameObject.Find("MainMesh").layer = LayerMask.NameToLayer("MyPlayer");
