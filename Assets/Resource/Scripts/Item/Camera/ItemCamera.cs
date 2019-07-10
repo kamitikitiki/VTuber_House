@@ -14,7 +14,7 @@ public class ItemCamera : ItemInterface
 
     public override int OnButton()
     {
-        f_Button = (f_Button + 1) % 3;
+        f_Button = (f_Button + 1) % 2;
 
         DisplayChange();
 
@@ -38,19 +38,13 @@ public class ItemCamera : ItemInterface
             case 0:
                 {
                     transform.GetChild(1).gameObject.SetActive(false);
+                    transform.GetChild(2).gameObject.SetActive(false);
                 }
                 break;
             case 1:
                 {
                     transform.GetChild(1).gameObject.SetActive(true);
-                    rotate.y = 180;
-                    view.transform.eulerAngles = rotate;
-                }
-                break;
-            case 2:
-                {
-                    rotate.y = 0;
-                    view.transform.eulerAngles = rotate;
+                    transform.GetChild(2).gameObject.SetActive(true);
                 }
                 break;
             default:
