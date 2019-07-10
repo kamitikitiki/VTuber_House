@@ -33,7 +33,7 @@ public class ItemInterface : MonoBehaviourPunCallbacks, IPunObservable
 
     }
 
-    //--ボタンを押したときの変数
+    //--パッドボタンを押したときの変数
     protected int f_Button;
 
     virtual public void Init()

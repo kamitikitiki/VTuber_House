@@ -22,11 +22,13 @@ public class ItemCamera : ItemInterface
         else if (view.activeInHierarchy == false)
         {
             view.SetActive(true);
-            view.transform.Rotate(rotate.x, 90, rotate.z);
+            Vector3 setRot = Vector3.zero;
+            setRot.y = 180;
+            view.transform.eulerAngles = setRot;
         }
         else
         {
-            view.transform.Rotate(rotate.x, rotate.y += 180, rotate.z);
+            view.transform.Rotate(0, rotate.y += 180, 0);
         }
         
         view.transform.rotation = rotate;
