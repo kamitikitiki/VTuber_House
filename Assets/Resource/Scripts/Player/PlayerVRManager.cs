@@ -21,15 +21,6 @@ public class PlayerVRManager : MonoBehaviourPunCallbacks
     {
         m_PhotonView = GetComponent<PhotonView>();
         m_TachPad = SteamVR_Actions.default_TachPad;
-    }
-
-    public void Start()
-    {
-        MyStateInit();
-        m_IsInitialize = true;
-
-        Debug.Log("start");
-
         if (m_PhotonView.IsMine)
         {
             GameObject.Find("MainMesh").layer = LayerMask.NameToLayer("MyPlayer");
@@ -46,6 +37,14 @@ public class PlayerVRManager : MonoBehaviourPunCallbacks
             //GameObject.Find("hand_trigger").layer = LayerMask.NameToLayer("SubMesh");
             //GameObject.Find("Controller (right)").layer = LayerMask.NameToLayer("SubMesh");
         }
+    }
+
+    public void Start()
+    {
+        MyStateInit();
+        m_IsInitialize = true;
+
+        Debug.Log("start");
     }
 
     public override void OnEnable()
