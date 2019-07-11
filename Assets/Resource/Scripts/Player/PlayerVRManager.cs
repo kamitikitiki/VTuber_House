@@ -36,8 +36,6 @@ public class PlayerVRManager : MonoBehaviourPunCallbacks
     {
         MyStateInit();
         m_IsInitialize = true;
-
-        Debug.Log("start");
     }
 
     public override void OnEnable()
@@ -55,6 +53,13 @@ public class PlayerVRManager : MonoBehaviourPunCallbacks
             transform.GetChild(1).GetComponent<SteamVR_Behaviour_Pose>().enabled = true;
             //頭の取得とスクリプトOn
             transform.GetChild(2).GetComponent<Camera>().enabled = true;
+            //足腰
+            if(transform.root.transform.name != "player(clone)")
+            {
+                transform.GetChild(3).GetComponent<SteamVR_Behaviour_Pose>().enabled = true;
+                transform.GetChild(4).GetComponent<SteamVR_Behaviour_Pose>().enabled = true;
+                transform.GetChild(5).GetComponent<SteamVR_Behaviour_Pose>().enabled = true;
+            }
         }
     }
 
