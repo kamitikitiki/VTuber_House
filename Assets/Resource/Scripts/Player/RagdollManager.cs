@@ -45,6 +45,11 @@ public class RagdollManager : MonoBehaviour
                     m_PhotonView.RPC("OffRagdoll", RpcTarget.AllViaServer);
                 }
             }
+
+            if(SteamVR_Actions.default_GrabPinch.GetStateDown(SteamVR_Input_Sources.RightHand))
+            {
+                SetRagdoll(true, 0);
+            }
         }
     }
 

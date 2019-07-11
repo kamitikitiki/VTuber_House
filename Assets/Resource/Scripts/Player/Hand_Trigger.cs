@@ -43,11 +43,6 @@ public class Hand_Trigger : MonoBehaviour
                 }
             }
         }
-
-        if(HandType == SteamVR_Input_Sources.LeftHand)
-        {
-            
-        }
     }
 
     private void OnTriggerStay(Collider other)
