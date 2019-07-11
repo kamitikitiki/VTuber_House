@@ -1153,7 +1153,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbc06527d6212f043bc996d7fc5f7fa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ModelName: Model1_5
+  MainMesh: {fileID: 0}
+  Wear: {fileID: 0}
+  SubMesh: {fileID: 0}
 --- !u!114 &2028424587488631760
 MonoBehaviour:
   m_ObjectHideFlags: 0
