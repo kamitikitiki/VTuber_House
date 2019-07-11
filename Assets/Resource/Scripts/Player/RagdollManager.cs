@@ -13,7 +13,7 @@ public class RagdollManager : MonoBehaviour
     public GameObject[] RagdollBone;
 
     Vector3 basePos = Vector3.zero;
-    Quaternion baseRota;
+    Vector3 baseRota;
     Photon.Pun.PhotonView m_PhotonView;
 
     private int m_OnRagdollCount;
@@ -28,6 +28,7 @@ public class RagdollManager : MonoBehaviour
     private void OnEnable()
     {
         basePos = PlayerRig.transform.position;
+        baseRota = PlayerRig.transform.eulerAngles;
         m_PhotonView = GetComponent<PhotonView>();
         m_OnRagdollCount = 0;
     }
@@ -46,10 +47,10 @@ public class RagdollManager : MonoBehaviour
                 }
             }
 
-            //if(SteamVR_Actions.default_GrabPinch.GetStateDown(SteamVR_Input_Sources.RightHand))
-            //{
-            //    SetRagdoll(true, 0);
-            //}
+            if (SteamVR_Actions.default_GrabPinch.GetStateDown(SteamVR_Input_Sources.RightHand))
+            {
+                SetRagdoll(true, 0);
+            }
         }
     }
 
@@ -98,6 +99,8 @@ public class RagdollManager : MonoBehaviour
     [PunRPC]
     private void OnRagdoll()
     {
+        basePos = PlayerRig.transform.position;
+        baseRota = PlayerRig.transform.eulerAngles;
         Head.GetComponent<Rigidbody>().useGravity = true;
         Head.GetComponent<Rigidbody>().isKinematic = false;
         Head.GetComponent<Collider>().enabled = true;
@@ -127,7 +130,12 @@ public class RagdollManager : MonoBehaviour
         }
 
         GetComponent<VRIK>().enabled = true;
-        PlayerRig.transform.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
+        Vector3 reloadPos = Head.transform.position;
+        reloadPos.y = basePos.y;
+        baseRota.x = 0;
+        baseRota.z = 0;
+        PlayerRig.transform.position = reloadPos;
+        PlayerRig.transform.eulerAngles = baseRota;
         m_OnRagdollCount = 0;
     }
 }

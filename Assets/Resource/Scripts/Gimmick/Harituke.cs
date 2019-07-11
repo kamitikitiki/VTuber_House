@@ -167,10 +167,8 @@ public class Harituke : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks
         }
     }
 
-
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        Debug.Log("test");
         if (m_MoveFlag == 0)
         {
             if (other.transform.tag == "Player")
