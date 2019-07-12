@@ -18,11 +18,14 @@ public class RagdollManager : MonoBehaviour
 
     private int m_OnRagdollCount;
 
+    private bool m_fResetPosition;
+
     // Start is called before the first frame update
     void Start()
     {
         basePos = PlayerRig.transform.position;
         m_OnRagdollCount = 0;
+        m_fResetPosition = false;
     }
 
     private void OnEnable()
@@ -31,6 +34,7 @@ public class RagdollManager : MonoBehaviour
         baseRota = PlayerRig.transform.eulerAngles;
         m_PhotonView = GetComponent<PhotonView>();
         m_OnRagdollCount = 0;
+        m_fResetPosition = false;
     }
 
     // Update is called once per frame
@@ -47,10 +51,10 @@ public class RagdollManager : MonoBehaviour
                 }
             }
 
-            if (SteamVR_Actions.default_GrabPinch.GetStateDown(SteamVR_Input_Sources.RightHand))
-            {
-                SetRagdoll(true, 0);
-            }
+            //if (SteamVR_Actions.default_GrabPinch.GetStateDown(SteamVR_Input_Sources.RightHand))
+            //{
+            //    SetRagdoll(true, 0);
+            //}
         }
     }
 
@@ -82,12 +86,13 @@ public class RagdollManager : MonoBehaviour
     }
 
     //外部からラグドールを設定する関数
-    public void SetRagdoll(bool active, int onCount)
+    public void SetRagdoll(bool active, int onCount, bool posReset)
     {
         if(active)
         {
             m_PhotonView.RPC("OnRagdoll", RpcTarget.AllViaServer);
             m_OnRagdollCount = onCount;
+            m_fResetPosition = posReset;
         }
         else
         {
@@ -130,12 +135,17 @@ public class RagdollManager : MonoBehaviour
         }
 
         GetComponent<VRIK>().enabled = true;
-        Vector3 reloadPos = Head.transform.position;
+        Vector3 reloadPos = basePos;
+        if (m_fResetPosition == true)
+        {
+            reloadPos = Head.transform.position;
+        }
         reloadPos.y = basePos.y;
         baseRota.x = 0;
         baseRota.z = 0;
         PlayerRig.transform.position = reloadPos;
         PlayerRig.transform.eulerAngles = baseRota;
         m_OnRagdollCount = 0;
+        m_fResetPosition = false;
     }
 }

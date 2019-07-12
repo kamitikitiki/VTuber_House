@@ -20,6 +20,7 @@ public class Harituke : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks
 
     //オブジェクト初期位置
     private Vector3 StartPosition;
+    private Vector3 StartRotate;
 
     //起動準備カウント
     private int StartCount = 120;
@@ -72,6 +73,7 @@ public class Harituke : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks
         m_JoinFoot_R = m_SetFoot_R.transform.GetComponent<FixedJoint>();
         chill = transform.GetChild(0);
         StartPosition = transform.position;
+        StartRotate = transform.eulerAngles;
 
         //数値の初期化
         StateInit();
@@ -91,7 +93,7 @@ public class Harituke : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks
 
                 Vector3 chillMove = Vector3.zero;
                 chillMove.z = Radius / StartCount;
-                chill.position += chillMove;
+                chill.localPosition += chillMove;
 
                 m_StartCount++;
                 if (m_StartCount >= StartCount)
@@ -100,8 +102,6 @@ public class Harituke : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks
                     m_DirayCount = 120;
                     m_RotateCount = RotateEndCount;
                 }
-
-                Debug.Log("move1");
             }
             else if(m_MoveFlag == 2)
             {
@@ -110,7 +110,6 @@ public class Harituke : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks
                 {
                     m_MoveFlag = 3;
                 }
-                Debug.Log("move2");
             }
             else if(m_MoveFlag == 3)
             {
@@ -134,14 +133,12 @@ public class Harituke : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks
                 {
                     m_MoveFlag = 4;
                     m_DirayCount = 120;
-                    m_Player.transform.GetChild(1).GetComponent<RagdollManager>().SetRagdoll(true, 240);
                     m_JoinHead.connectedBody = null;
                     m_JoinHand_L.connectedBody = null;
                     m_JoinHand_R.connectedBody = null;
                     m_JoinFoot_L.connectedBody = null;
                     m_JoinFoot_R.connectedBody = null;
                 }
-                Debug.Log("move3");
             }
             else if (m_MoveFlag == 4)
             {
@@ -154,9 +151,9 @@ public class Harituke : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks
             else if(m_MoveFlag == 5)
             {
                 transform.position = StartPosition;
-                transform.rotation = Quaternion.identity;
-                chill.position = transform.position;
-                chill.rotation = transform.rotation;
+                transform.eulerAngles = StartRotate;
+                chill.localPosition = Vector3.zero;
+                chill.localEulerAngles = Vector3.zero;
                 StateInit();
             }
         }
@@ -210,7 +207,7 @@ public class Harituke : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks
 
     private void RotateStart()
     {
-        m_Player.transform.GetChild(1).GetComponent<RagdollManager>().SetRagdoll(true, 0);
+        m_Player.transform.GetChild(1).GetComponent<RagdollManager>().SetRagdoll(true, RotateEndCount + (m_StartCount * 5) + 600, false);
 
         m_MoveFlag = 1;
         //プレイヤーの手と足を取得

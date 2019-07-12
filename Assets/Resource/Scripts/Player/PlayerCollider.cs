@@ -37,7 +37,7 @@ public class PlayerCollider : MonoBehaviour
         {
             if (other.tag == "Death")
             {
-                m_Ragdoll.SetRagdoll(true, 300);
+                m_Ragdoll.SetRagdoll(true, 300, true);
             }
         }
     }
