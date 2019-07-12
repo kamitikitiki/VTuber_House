@@ -27,18 +27,16 @@ public class PlayerCollider : MonoBehaviour
 
     public void OnEnable()
     {
-        MyStateInit();
+        if(m_IsInitialize == false)
+            MyStateInit();
     }
 
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log("test1");
         if(m_View.IsMine)
         {
-            Debug.Log("test2");
             if (other.tag == "Death")
             {
-                Debug.Log("test3");
                 m_Ragdoll.SetRagdoll(true, 300);
             }
         }
