@@ -1168,7 +1168,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 5872055045212408755}
   viewIdField: 0
-  InstantiationId: 5
+  InstantiationId: 6
   isRuntimeInstantiated: 0
 --- !u!114 &5872055045212408755
 MonoBehaviour:
@@ -2233,7 +2233,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 5033218635735349167}
   viewIdField: 0
-  InstantiationId: 3
+  InstantiationId: 5
   isRuntimeInstantiated: 0
 --- !u!114 &5033218635735349167
 MonoBehaviour:
@@ -3347,7 +3347,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6764908457705590514}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -3556,7 +3556,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 1668339038738690951}
   viewIdField: 0
-  InstantiationId: 6
+  InstantiationId: 4
   isRuntimeInstantiated: 0
 --- !u!114 &1668339038738690951
 MonoBehaviour:
@@ -3967,7 +3967,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 0}
   viewIdField: 0
-  InstantiationId: 2
+  InstantiationId: 8
   isRuntimeInstantiated: 0
 --- !u!114 &1891937244184742447
 MonoBehaviour:
@@ -4310,7 +4310,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 0}
   viewIdField: 0
-  InstantiationId: 8
+  InstantiationId: 9
   isRuntimeInstantiated: 0
 --- !u!1 &8031712289337050138
 GameObject:
