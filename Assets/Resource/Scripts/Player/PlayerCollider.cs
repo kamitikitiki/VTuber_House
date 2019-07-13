@@ -37,7 +37,11 @@ public class PlayerCollider : MonoBehaviour
         {
             if (other.tag == "Death")
             {
-                m_Ragdoll.SetRagdoll(true, 300, true);
+                if(m_Ragdoll.IsRagdoll() == false)
+                {
+                    //運動企画用の設定
+                    m_Ragdoll.SetRagdoll(true, 1200, false);
+                }
             }
         }
     }

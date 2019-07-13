@@ -20,6 +20,13 @@ public class UndoNormal : UndoObjectInterface
     {
 
         //オブジェクトの移動
-        transform.Translate(m_MoveSpped, 0, 0);
+
+        //このif分は自分の管理しているオブジェクトかどうかチェック
+        //自分の生成したPhotonViewオブジェクトの所持者は自分
+        //自分の所持オブジェクトだけが座標の移動やtransformを変更できる
+        if(m_PhotonView.IsMine)
+        {
+            transform.Translate(m_MoveSpped, 0, 0);
+        }
     }
 }

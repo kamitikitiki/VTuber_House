@@ -20,6 +20,16 @@ public class RagdollManager : MonoBehaviour
 
     private bool m_fResetPosition;
 
+    //ラグドール確認用
+    public bool IsRagdoll()
+    {
+        if (GetComponent<VRIK>().enabled == false)
+        {
+            return true;
+        }
+        return false;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
