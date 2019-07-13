@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class PhotonManager : MonoBehaviourPunCallbacks
 {
     public string PlayerName;
+    public Transform PlayerStartPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -54,7 +55,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
             Vector3 pos = Vector3.zero;
             Quaternion qua = new Quaternion(0, 0, 0, 1);
             string createVrName = "PunPrefabs/" + PlayerName;
-            PhotonNetwork.Instantiate(createVrName, pos, qua);
+            PhotonNetwork.Instantiate(createVrName, PlayerStartPosition.position, PlayerStartPosition.rotation);
         }
     }
 }
