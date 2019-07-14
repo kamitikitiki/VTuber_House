@@ -60,7 +60,17 @@ public class RagdollManager : MonoBehaviourPunCallbacks
                     m_PhotonView.RPC("OffRagdoll", RpcTarget.AllViaServer);
                 }
             }
+
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                m_PhotonView.RPC("OnRagdoll", RpcTarget.AllViaServer);
+            }
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                m_PhotonView.RPC("OffRagdoll", RpcTarget.AllViaServer);
+            }
         }
+
     }
 
     private void LateUpdate()
