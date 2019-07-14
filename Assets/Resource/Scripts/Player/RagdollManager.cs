@@ -63,7 +63,7 @@ public class RagdollManager : MonoBehaviour
 
             if (SteamVR_Actions.default_GrabPinch.GetStateDown(SteamVR_Input_Sources.RightHand))
             {
-                SetRagdoll(true, 0);
+                SetRagdoll(true, 0, true);
             }
         }
     }
