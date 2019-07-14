@@ -114,6 +114,7 @@ public class RagdollManager : MonoBehaviour
         Head.GetComponent<Rigidbody>().useGravity = true;
         Head.GetComponent<Rigidbody>().isKinematic = false;
         Head.GetComponent<Collider>().enabled = true;
+        Head.GetComponent<PhotonTransformView>().enabled = true;
         for (int i = 0; i < RagdollBone.Length; i++)
         {
             RagdollBone[i].GetComponent<Rigidbody>().useGravity = true;
@@ -132,6 +133,7 @@ public class RagdollManager : MonoBehaviour
         Head.GetComponent<Rigidbody>().useGravity = false;
         Head.GetComponent<Rigidbody>().isKinematic = true;
         Head.GetComponent<Collider>().enabled = false;
+        Head.GetComponent<PhotonTransformView>().enabled = false;
         for (int i = 0; i < RagdollBone.Length; i++)
         {
             RagdollBone[i].GetComponent<Rigidbody>().useGravity = false;
