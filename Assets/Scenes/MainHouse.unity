@@ -160,9 +160,38 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 31973250}
+  - {fileID: 31973252}
   viewIdField: 5
   InstantiationId: 5
   isRuntimeInstantiated: 0
+--- !u!114 &31973252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31973249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64179f3720bbfe947b7724caa67b7c1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizeVelocity: 1
+  m_SynchronizeAngularVelocity: 0
+  m_TeleportEnabled: 0
+  m_TeleportIfDistanceGreaterThan: 3
+--- !u!114 &31973253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31973249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8274bf29ac2a50b48a816250ef0b2578, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &603386807
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,7 +489,7 @@ PrefabInstance:
     - target: {fileID: 8334356688023287507, guid: e1336ed0a56a0bd4f93a59b3680f2e44,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 8.136209
+      value: 5.1742263
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1336ed0a56a0bd4f93a59b3680f2e44, type: 3}
