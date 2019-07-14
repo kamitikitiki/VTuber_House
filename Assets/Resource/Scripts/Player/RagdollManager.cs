@@ -125,6 +125,7 @@ public class RagdollManager : MonoBehaviourPunCallbacks
             }
         }
 
+        GetComponent<VRIK>().solver.plantFeet = false;
         GetComponent<VRIK>().enabled = false;
 
 
@@ -159,6 +160,7 @@ public class RagdollManager : MonoBehaviourPunCallbacks
             m_OnRagdollCount = 0;
             m_fResetPosition = false;
         }
+        GetComponent<VRIK>().solver.plantFeet = true;
         GetComponent<VRIK>().enabled = true;
     }
 }
