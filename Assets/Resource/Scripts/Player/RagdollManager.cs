@@ -5,7 +5,7 @@ using Valve.VR;
 using RootMotion.FinalIK;
 using Photon.Pun; 
 
-public class RagdollManager : MonoBehaviour
+public class RagdollManager : MonoBehaviourPunCallbacks
 {
     public GameObject PlayerRig;
     public GameObject Camera;
@@ -38,7 +38,7 @@ public class RagdollManager : MonoBehaviour
         m_fResetPosition = false;
     }
 
-    private void OnEnable()
+    public override void OnEnable()
     {
         basePos = PlayerRig.transform.position;
         baseRota = PlayerRig.transform.eulerAngles;
