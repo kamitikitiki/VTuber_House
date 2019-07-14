@@ -41,6 +41,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7118050219151843054}
   - component: {fileID: 4690097025006415886}
+  - component: {fileID: 1515480680}
+  - component: {fileID: 1515480679}
   m_Layer: 0
   m_Name: Tracker(left)
   m_TagString: Untagged
@@ -106,6 +108,43 @@ MonoBehaviour:
     m_TypeName: Valve.VR.SteamVR_Behaviour_Pose_DeviceIndexChangedEvent, SteamVR,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   broadcastDeviceChanges: 1
+--- !u!114 &1515480680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135154700708652371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 1515480679}
+  viewIdField: 0
+  InstantiationId: 11
+  isRuntimeInstantiated: 0
+--- !u!114 &1515480679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135154700708652371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
 --- !u!1 &290732405247141828
 GameObject:
   m_ObjectHideFlags: 0
@@ -1783,7 +1822,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 5107488032930403136}
   viewIdField: 0
-  InstantiationId: 6
+  InstantiationId: 7
   isRuntimeInstantiated: 0
 --- !u!114 &5107488032930403136
 MonoBehaviour:
@@ -3189,7 +3228,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 5928247920434130780}
   viewIdField: 0
-  InstantiationId: 5
+  InstantiationId: 6
   isRuntimeInstantiated: 0
 --- !u!114 &5928247920434130780
 MonoBehaviour:
@@ -3560,7 +3599,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 7777127331809025089}
   viewIdField: 0
-  InstantiationId: 8
+  InstantiationId: 9
   isRuntimeInstantiated: 0
 --- !u!114 &8661938987766067426
 MonoBehaviour:
@@ -4046,6 +4085,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3701999724647880991}
   - component: {fileID: 2656758882005123284}
+  - component: {fileID: 1515480678}
+  - component: {fileID: 1515480677}
   m_Layer: 0
   m_Name: Tracker(right)
   m_TagString: Untagged
@@ -4111,6 +4152,43 @@ MonoBehaviour:
     m_TypeName: Valve.VR.SteamVR_Behaviour_Pose_DeviceIndexChangedEvent, SteamVR,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   broadcastDeviceChanges: 1
+--- !u!114 &1515480678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7720622349177754684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 1515480677}
+  viewIdField: 0
+  InstantiationId: 12
+  isRuntimeInstantiated: 0
+--- !u!114 &1515480677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7720622349177754684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
 --- !u!1 &7872200161974572765
 GameObject:
   m_ObjectHideFlags: 0
@@ -4478,7 +4556,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 52893354113018740}
   viewIdField: 0
-  InstantiationId: 4
+  InstantiationId: 5
   isRuntimeInstantiated: 0
 --- !u!114 &52893354113018740
 MonoBehaviour:
@@ -4536,6 +4614,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6665110410016586985}
   - component: {fileID: 3712889149598597231}
+  - component: {fileID: 1515480682}
+  - component: {fileID: 1515480681}
   m_Layer: 0
   m_Name: Tracker(mid)
   m_TagString: Untagged
@@ -4601,6 +4681,43 @@ MonoBehaviour:
     m_TypeName: Valve.VR.SteamVR_Behaviour_Pose_DeviceIndexChangedEvent, SteamVR,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   broadcastDeviceChanges: 1
+--- !u!114 &1515480682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8672471061231228556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 1515480681}
+  viewIdField: 0
+  InstantiationId: 13
+  isRuntimeInstantiated: 0
+--- !u!114 &1515480681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8672471061231228556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
 --- !u!1 &8712939674066099433
 GameObject:
   m_ObjectHideFlags: 0
@@ -4685,7 +4802,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 0}
   viewIdField: 0
-  InstantiationId: 9
+  InstantiationId: 10
   isRuntimeInstantiated: 0
 --- !u!1 &8955028716934363027
 GameObject:
@@ -4797,7 +4914,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 0}
   viewIdField: 0
-  InstantiationId: 7
+  InstantiationId: 8
   isRuntimeInstantiated: 0
 --- !u!114 &999035350875345628
 MonoBehaviour:
