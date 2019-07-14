@@ -204,6 +204,7 @@ GameObject:
   - component: {fileID: 3232865726837516247}
   - component: {fileID: 746531544}
   - component: {fileID: 746531543}
+  - component: {fileID: 1061541060}
   m_Layer: 0
   m_Name: Model1_UpLeg.L
   m_TagString: Untagged
@@ -321,8 +322,9 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 746531543}
+  - {fileID: 1061541060}
   viewIdField: 0
-  InstantiationId: 21
+  InstantiationId: 9
   isRuntimeInstantiated: 0
 --- !u!114 &746531543
 MonoBehaviour:
@@ -340,6 +342,21 @@ MonoBehaviour:
   m_SynchronizeAngularVelocity: 0
   m_TeleportEnabled: 0
   m_TeleportIfDistanceGreaterThan: 3
+--- !u!114 &1061541060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440434010437923734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
 --- !u!1 &1620418208135364000
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,7 +454,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 1975513794}
   viewIdField: 0
-  InstantiationId: 11
+  InstantiationId: 21
   isRuntimeInstantiated: 0
 --- !u!114 &1975513794
 MonoBehaviour:
@@ -499,6 +516,7 @@ GameObject:
   - component: {fileID: 3232865727140255569}
   - component: {fileID: 746531536}
   - component: {fileID: 746531535}
+  - component: {fileID: 1061541056}
   m_Layer: 0
   m_Name: Model1_Spine2
   m_TagString: Untagged
@@ -616,8 +634,9 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 746531535}
+  - {fileID: 1061541056}
   viewIdField: 0
-  InstantiationId: 16
+  InstantiationId: 14
   isRuntimeInstantiated: 0
 --- !u!114 &746531535
 MonoBehaviour:
@@ -635,6 +654,21 @@ MonoBehaviour:
   m_SynchronizeAngularVelocity: 0
   m_TeleportEnabled: 0
   m_TeleportIfDistanceGreaterThan: 3
+--- !u!114 &1061541056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018360562906311002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
 --- !u!1 &2202997285159519973
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,6 +714,7 @@ GameObject:
   - component: {fileID: 3232865727068635254}
   - component: {fileID: 746531532}
   - component: {fileID: 746531531}
+  - component: {fileID: 1061541054}
   m_Layer: 0
   m_Name: Model1_ForeArm.R
   m_TagString: Untagged
@@ -797,8 +832,9 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 746531531}
+  - {fileID: 1061541054}
   viewIdField: 0
-  InstantiationId: 20
+  InstantiationId: 10
   isRuntimeInstantiated: 0
 --- !u!114 &746531531
 MonoBehaviour:
@@ -816,6 +852,21 @@ MonoBehaviour:
   m_SynchronizeAngularVelocity: 0
   m_TeleportEnabled: 0
   m_TeleportIfDistanceGreaterThan: 3
+--- !u!114 &1061541054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2362596824915055443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
 --- !u!1 &2440035842400184957
 GameObject:
   m_ObjectHideFlags: 0
@@ -996,6 +1047,7 @@ GameObject:
   - component: {fileID: 3232865728489084227}
   - component: {fileID: 746531528}
   - component: {fileID: 746531527}
+  - component: {fileID: 1061541052}
   m_Layer: 0
   m_Name: Model1_UpLeg.R
   m_TagString: Untagged
@@ -1113,8 +1165,9 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 746531527}
+  - {fileID: 1061541052}
   viewIdField: 0
-  InstantiationId: 23
+  InstantiationId: 7
   isRuntimeInstantiated: 0
 --- !u!114 &746531527
 MonoBehaviour:
@@ -1132,6 +1185,21 @@ MonoBehaviour:
   m_SynchronizeAngularVelocity: 0
   m_TeleportEnabled: 0
   m_TeleportIfDistanceGreaterThan: 3
+--- !u!114 &1061541052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3565129988415097332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
 --- !u!1 &3584344526890205329
 GameObject:
   m_ObjectHideFlags: 0
@@ -1367,7 +1435,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 5872055045212408755}
   viewIdField: 0
-  InstantiationId: 10
+  InstantiationId: 20
   isRuntimeInstantiated: 0
 --- !u!114 &5872055045212408755
 MonoBehaviour:
@@ -1538,6 +1606,7 @@ GameObject:
   - component: {fileID: 3232865727250011491}
   - component: {fileID: 746531540}
   - component: {fileID: 746531539}
+  - component: {fileID: 1061541058}
   m_Layer: 0
   m_Name: Model1_Arm.L
   m_TagString: Untagged
@@ -1655,8 +1724,9 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 746531539}
+  - {fileID: 1061541058}
   viewIdField: 0
-  InstantiationId: 17
+  InstantiationId: 13
   isRuntimeInstantiated: 0
 --- !u!114 &746531539
 MonoBehaviour:
@@ -1674,6 +1744,21 @@ MonoBehaviour:
   m_SynchronizeAngularVelocity: 0
   m_TeleportEnabled: 0
   m_TeleportIfDistanceGreaterThan: 3
+--- !u!114 &1061541058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4354604668937500716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
 --- !u!1 &4565233519613109775
 GameObject:
   m_ObjectHideFlags: 0
@@ -1790,6 +1875,7 @@ GameObject:
   - component: {fileID: 3232865728489337038}
   - component: {fileID: 746531534}
   - component: {fileID: 746531533}
+  - component: {fileID: 1061541055}
   m_Layer: 0
   m_Name: Model1_Arm.R
   m_TagString: Untagged
@@ -1907,8 +1993,9 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 746531533}
+  - {fileID: 1061541055}
   viewIdField: 0
-  InstantiationId: 19
+  InstantiationId: 11
   isRuntimeInstantiated: 0
 --- !u!114 &746531533
 MonoBehaviour:
@@ -1926,6 +2013,21 @@ MonoBehaviour:
   m_SynchronizeAngularVelocity: 0
   m_TeleportEnabled: 0
   m_TeleportIfDistanceGreaterThan: 3
+--- !u!114 &1061541055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4715301002651037695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
 --- !u!1 &4829911713462648743
 GameObject:
   m_ObjectHideFlags: 0
@@ -2319,6 +2421,7 @@ GameObject:
   - component: {fileID: 3232865728856907308}
   - component: {fileID: 746531542}
   - component: {fileID: 746531541}
+  - component: {fileID: 1061541059}
   m_Layer: 0
   m_Name: Model1_Leg.L
   m_TagString: Untagged
@@ -2436,8 +2539,9 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 746531541}
+  - {fileID: 1061541059}
   viewIdField: 0
-  InstantiationId: 22
+  InstantiationId: 8
   isRuntimeInstantiated: 0
 --- !u!114 &746531541
 MonoBehaviour:
@@ -2455,6 +2559,21 @@ MonoBehaviour:
   m_SynchronizeAngularVelocity: 0
   m_TeleportEnabled: 0
   m_TeleportIfDistanceGreaterThan: 3
+--- !u!114 &1061541059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5430908370509511668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
 --- !u!1 &5550562693474184367
 GameObject:
   m_ObjectHideFlags: 0
@@ -2552,7 +2671,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 5033218635735349167}
   viewIdField: 0
-  InstantiationId: 9
+  InstantiationId: 19
   isRuntimeInstantiated: 0
 --- !u!114 &5033218635735349167
 MonoBehaviour:
@@ -2720,6 +2839,7 @@ GameObject:
   - component: {fileID: 3232865727159663288}
   - component: {fileID: 746531538}
   - component: {fileID: 746531537}
+  - component: {fileID: 1061541057}
   m_Layer: 0
   m_Name: Model1_ForeArm.L
   m_TagString: Untagged
@@ -2837,8 +2957,9 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 746531537}
+  - {fileID: 1061541057}
   viewIdField: 0
-  InstantiationId: 18
+  InstantiationId: 12
   isRuntimeInstantiated: 0
 --- !u!114 &746531537
 MonoBehaviour:
@@ -2856,6 +2977,21 @@ MonoBehaviour:
   m_SynchronizeAngularVelocity: 0
   m_TeleportEnabled: 0
   m_TeleportIfDistanceGreaterThan: 3
+--- !u!114 &1061541057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5914285790442952328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
 --- !u!1 &6657168434734242627
 GameObject:
   m_ObjectHideFlags: 0
@@ -3736,6 +3872,7 @@ GameObject:
   - component: {fileID: 3232865727941923776}
   - component: {fileID: 746531530}
   - component: {fileID: 746531529}
+  - component: {fileID: 1061541053}
   m_Layer: 0
   m_Name: Model1_Spine
   m_TagString: Untagged
@@ -3807,6 +3944,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 746531529}
+  - {fileID: 1061541053}
   viewIdField: 0
   InstantiationId: 15
   isRuntimeInstantiated: 0
@@ -3826,6 +3964,21 @@ MonoBehaviour:
   m_SynchronizeAngularVelocity: 0
   m_TeleportEnabled: 0
   m_TeleportIfDistanceGreaterThan: 3
+--- !u!114 &1061541053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6868070510857650857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
 --- !u!1 &6923694171501266350
 GameObject:
   m_ObjectHideFlags: 0
@@ -3955,7 +4108,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 1668339038738690951}
   viewIdField: 0
-  InstantiationId: 8
+  InstantiationId: 18
   isRuntimeInstantiated: 0
 --- !u!114 &1668339038738690951
 MonoBehaviour:
@@ -4366,7 +4519,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 0}
   viewIdField: 0
-  InstantiationId: 13
+  InstantiationId: 23
   isRuntimeInstantiated: 0
 --- !u!114 &1891937244184742447
 MonoBehaviour:
@@ -4709,7 +4862,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 0}
   viewIdField: 0
-  InstantiationId: 14
+  InstantiationId: 24
   isRuntimeInstantiated: 0
 --- !u!1 &8031712289337050138
 GameObject:
@@ -4839,7 +4992,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 1975513796}
   viewIdField: 0
-  InstantiationId: 7
+  InstantiationId: 17
   isRuntimeInstantiated: 0
 --- !u!114 &1975513796
 MonoBehaviour:
@@ -4870,6 +5023,7 @@ GameObject:
   - component: {fileID: 3232865728784590126}
   - component: {fileID: 746531526}
   - component: {fileID: 746531525}
+  - component: {fileID: 1061541051}
   m_Layer: 0
   m_Name: Model1_Leg.R
   m_TagString: Untagged
@@ -4987,8 +5141,9 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 746531525}
+  - {fileID: 1061541051}
   viewIdField: 0
-  InstantiationId: 24
+  InstantiationId: 6
   isRuntimeInstantiated: 0
 --- !u!114 &746531525
 MonoBehaviour:
@@ -5006,6 +5161,21 @@ MonoBehaviour:
   m_SynchronizeAngularVelocity: 0
   m_TeleportEnabled: 0
   m_TeleportIfDistanceGreaterThan: 3
+--- !u!114 &1061541051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8099074736374942263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
 --- !u!1 &8250057098627375448
 GameObject:
   m_ObjectHideFlags: 0
@@ -5200,7 +5370,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 8966987537121297586}
   viewIdField: 0
-  InstantiationId: 12
+  InstantiationId: 22
   isRuntimeInstantiated: 0
 --- !u!114 &8046147066175039505
 MonoBehaviour:
@@ -5527,7 +5697,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 1975513792}
   viewIdField: 0
-  InstantiationId: 6
+  InstantiationId: 16
   isRuntimeInstantiated: 0
 --- !u!114 &1975513792
 MonoBehaviour:
