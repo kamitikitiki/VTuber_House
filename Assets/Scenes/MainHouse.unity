@@ -471,7 +471,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SynchronizeVelocity: 1
   m_SynchronizeAngularVelocity: 0
-  m_TeleportEnabled: 1
+  m_TeleportEnabled: 0
   m_TeleportIfDistanceGreaterThan: 3
 --- !u!114 &1755019100
 MonoBehaviour:
@@ -492,9 +492,25 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 1755019099}
+  - {fileID: 1755019101}
   viewIdField: 5
   InstantiationId: 5
   isRuntimeInstantiated: 0
+--- !u!114 &1755019101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755019098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
 --- !u!4 &2106555992 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8336415036283083309, guid: 8a34acac8b5fe994ebaa243f784a6aab,
@@ -640,7 +656,7 @@ PrefabInstance:
     - target: {fileID: 1609132988930770059, guid: f070f11b5f580674b84443a7d8b6c86a,
         type: 3}
       propertyPath: PlayerName
-      value: yayoi
+      value: kagamin
       objectReference: {fileID: 0}
     - target: {fileID: 1609132988930770059, guid: f070f11b5f580674b84443a7d8b6c86a,
         type: 3}
@@ -664,7 +680,7 @@ PrefabInstance:
     - target: {fileID: 8334356688023287507, guid: e1336ed0a56a0bd4f93a59b3680f2e44,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.74
+      value: 4.45
       objectReference: {fileID: 0}
     - target: {fileID: 8334356688023287507, guid: e1336ed0a56a0bd4f93a59b3680f2e44,
         type: 3}
@@ -716,6 +732,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3351634440508869553, guid: e1336ed0a56a0bd4f93a59b3680f2e44,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3351634440508869553, guid: e1336ed0a56a0bd4f93a59b3680f2e44,
+        type: 3}
+      propertyPath: m_CookingOptions
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1336ed0a56a0bd4f93a59b3680f2e44, type: 3}
 --- !u!1001 &3200967924791842837
@@ -733,7 +759,7 @@ PrefabInstance:
     - target: {fileID: 1745918231332184357, guid: e7b1d063ce744ac4ca0c2e49b85ed044,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.559
+      value: 4.181
       objectReference: {fileID: 0}
     - target: {fileID: 1745918231332184357, guid: e7b1d063ce744ac4ca0c2e49b85ed044,
         type: 3}
@@ -743,7 +769,7 @@ PrefabInstance:
     - target: {fileID: 1745918231332184357, guid: e7b1d063ce744ac4ca0c2e49b85ed044,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.103
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1745918231332184357, guid: e7b1d063ce744ac4ca0c2e49b85ed044,
         type: 3}
@@ -803,6 +829,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TeleportIfDistanceGreaterThan
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 650820032783905092, guid: e7b1d063ce744ac4ca0c2e49b85ed044,
+        type: 3}
+      propertyPath: m_TeleportEnabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7b1d063ce744ac4ca0c2e49b85ed044, type: 3}

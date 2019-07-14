@@ -29,9 +29,11 @@ public class ItemInterface : MonoBehaviourPunCallbacks, IPunObservable
     }
     public void SetRelease()
     {
-        f_Have = false;
-        gameObject.GetComponent<Rigidbody>().useGravity = true;
-
+        if (GetComponent<PhotonView>().IsMine)
+        {
+            f_Have = false;
+            gameObject.GetComponent<Rigidbody>().useGravity = true;
+        }
     }
 
     //--パッドボタンを押したときの変数
@@ -49,7 +51,6 @@ public class ItemInterface : MonoBehaviourPunCallbacks, IPunObservable
 
     void Update()
     {
-
     }
 
     // データを送受信するメソッド
