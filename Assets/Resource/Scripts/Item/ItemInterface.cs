@@ -51,6 +51,13 @@ public class ItemInterface : MonoBehaviourPunCallbacks, IPunObservable
 
     void Update()
     {
+        if (GetComponent<PhotonView>().IsMine)
+        {
+            if(f_Have == false)
+            {
+                gameObject.GetComponent<Rigidbody>().useGravity = true;
+            }
+        }
     }
 
     // データを送受信するメソッド
