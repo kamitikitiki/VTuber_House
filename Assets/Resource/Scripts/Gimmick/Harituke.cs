@@ -87,7 +87,6 @@ public class Harituke : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks
             //起動開始
             if(m_MoveFlag == 1)
             {
-                Debug.Log("test1");
                 Vector3 mainMove = Vector3.zero;
                 mainMove.y = 1.5f / StartCount;
                 transform.position += mainMove;
@@ -106,7 +105,6 @@ public class Harituke : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks
             }
             else if(m_MoveFlag == 2)
             {
-                Debug.Log("test2");
                 m_DirayCount--;
                 if(m_DirayCount <= 0)
                 {
@@ -115,7 +113,6 @@ public class Harituke : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks
             }
             else if(m_MoveFlag == 3)
             {
-                Debug.Log("test3");
                 if (m_RotateCount > 0)
                 {
                     if (m_NextRotateCount <= 0)
@@ -145,7 +142,6 @@ public class Harituke : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks
             }
             else if (m_MoveFlag == 4)
             {
-                Debug.Log("test4");
                 m_DirayCount--;
                 if (m_DirayCount <= 0)
                 {

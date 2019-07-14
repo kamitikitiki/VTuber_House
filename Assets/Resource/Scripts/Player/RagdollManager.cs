@@ -115,17 +115,19 @@ public class RagdollManager : MonoBehaviourPunCallbacks
             baseRota = PlayerRig.transform.eulerAngles;
             Head.GetComponent<Rigidbody>().useGravity = true;
             Head.GetComponent<Rigidbody>().isKinematic = false;
-            Head.GetComponent<Collider>().enabled = true;
-            Head.GetComponent<PhotonTransformView>().enabled = true;
             for (int i = 0; i < RagdollBone.Length; i++)
             {
                 RagdollBone[i].GetComponent<Rigidbody>().useGravity = true;
                 RagdollBone[i].GetComponent<Rigidbody>().isKinematic = false;
                 RagdollBone[i].GetComponent<Collider>().enabled = true;
-                RagdollBone[i].GetComponent<PhotonTransformView>().enabled = true;
             }
         }
 
+        for (int i = 0; i < RagdollBone.Length; i++)
+        {
+            RagdollBone[i].GetComponent<PhotonTransformView>().enabled = true;
+        }
+        Head.GetComponent<PhotonTransformView>().enabled = true;
         GetComponent<VRIK>().enabled = false;
 
 
@@ -139,13 +141,11 @@ public class RagdollManager : MonoBehaviourPunCallbacks
             Head.GetComponent<Rigidbody>().useGravity = false;
             Head.GetComponent<Rigidbody>().isKinematic = true;
             Head.GetComponent<Collider>().enabled = false;
-            Head.GetComponent<PhotonTransformView>().enabled = false;
             for (int i = 0; i < RagdollBone.Length; i++)
             {
                 RagdollBone[i].GetComponent<Rigidbody>().useGravity = false;
                 RagdollBone[i].GetComponent<Rigidbody>().isKinematic = true;
                 RagdollBone[i].GetComponent<Collider>().enabled = false;
-                RagdollBone[i].GetComponent<PhotonTransformView>().enabled = false;
             }
 
             Vector3 reloadPos = basePos;
@@ -161,6 +161,11 @@ public class RagdollManager : MonoBehaviourPunCallbacks
             m_OnRagdollCount = 0;
             m_fResetPosition = false;
         }
+        for (int i = 0; i < RagdollBone.Length; i++)
+        {
+            RagdollBone[i].GetComponent<PhotonTransformView>().enabled = false;
+        }
+        Head.GetComponent<PhotonTransformView>().enabled = false;
         GetComponent<VRIK>().enabled = true;
     }
 }
