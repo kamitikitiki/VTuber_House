@@ -710,15 +710,20 @@ PrefabInstance:
       propertyPath: viewIdField
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6139967478341683407, guid: bcd18e6a67ba21940b79c6b64482a8d3,
+        type: 3}
+      propertyPath: OwnershipTransfer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6139967477110897661, guid: bcd18e6a67ba21940b79c6b64482a8d3,
         type: 3}
       propertyPath: MaxSpeed
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6139967477110897661, guid: bcd18e6a67ba21940b79c6b64482a8d3,
         type: 3}
       propertyPath: Radius
-      value: -4.5
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 6139967477110897661, guid: bcd18e6a67ba21940b79c6b64482a8d3,
         type: 3}
@@ -728,7 +733,7 @@ PrefabInstance:
     - target: {fileID: 6139967477110897661, guid: bcd18e6a67ba21940b79c6b64482a8d3,
         type: 3}
       propertyPath: MinSpeed
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcd18e6a67ba21940b79c6b64482a8d3, type: 3}
