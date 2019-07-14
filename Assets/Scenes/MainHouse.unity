@@ -596,7 +596,7 @@ PrefabInstance:
     - target: {fileID: 1609132988930770059, guid: f070f11b5f580674b84443a7d8b6c86a,
         type: 3}
       propertyPath: PlayerName
-      value: kagamin
+      value: yayoi
       objectReference: {fileID: 0}
     - target: {fileID: 1609132988930770059, guid: f070f11b5f580674b84443a7d8b6c86a,
         type: 3}
