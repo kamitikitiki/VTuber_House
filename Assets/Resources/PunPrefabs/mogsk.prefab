@@ -128,7 +128,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 1515480679}
   viewIdField: 0
-  InstantiationId: 11
+  InstantiationId: 22
   isRuntimeInstantiated: 0
 --- !u!114 &1515480679
 MonoBehaviour:
@@ -1162,7 +1162,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 7239027233171853506}
   viewIdField: 0
-  InstantiationId: 21
+  InstantiationId: 9
   isRuntimeInstantiated: 0
 --- !u!114 &7239027233171853506
 MonoBehaviour:
@@ -1841,7 +1841,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 4541063806966976711}
   viewIdField: 0
-  InstantiationId: 16
+  InstantiationId: 14
   isRuntimeInstantiated: 0
 --- !u!114 &4541063806966976711
 MonoBehaviour:
@@ -1956,7 +1956,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 5107488032930403136}
   viewIdField: 0
-  InstantiationId: 10
+  InstantiationId: 21
   isRuntimeInstantiated: 0
 --- !u!114 &5107488032930403136
 MonoBehaviour:
@@ -2105,7 +2105,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 242151885823201714}
   viewIdField: 0
-  InstantiationId: 23
+  InstantiationId: 7
   isRuntimeInstantiated: 0
 --- !u!114 &242151885823201714
 MonoBehaviour:
@@ -2461,7 +2461,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 4966366255892284409}
   viewIdField: 0
-  InstantiationId: 17
+  InstantiationId: 13
   isRuntimeInstantiated: 0
 --- !u!114 &4966366255892284409
 MonoBehaviour:
@@ -2705,7 +2705,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 1015268412007622910}
   viewIdField: 0
-  InstantiationId: 20
+  InstantiationId: 10
   isRuntimeInstantiated: 0
 --- !u!114 &1015268412007622910
 MonoBehaviour:
@@ -2956,7 +2956,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 6814795326383614366}
   viewIdField: 0
-  InstantiationId: 18
+  InstantiationId: 12
   isRuntimeInstantiated: 0
 --- !u!114 &6814795326383614366
 MonoBehaviour:
@@ -3195,7 +3195,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 2210276555558363378}
   viewIdField: 0
-  InstantiationId: 14
+  InstantiationId: 16
   isRuntimeInstantiated: 0
 --- !u!114 &2210276555558363378
 MonoBehaviour:
@@ -3482,7 +3482,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 8812096076788336383}
   viewIdField: 0
-  InstantiationId: 19
+  InstantiationId: 11
   isRuntimeInstantiated: 0
 --- !u!114 &8812096076788336383
 MonoBehaviour:
@@ -3596,7 +3596,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 5928247920434130780}
   viewIdField: 0
-  InstantiationId: 9
+  InstantiationId: 20
   isRuntimeInstantiated: 0
 --- !u!114 &5928247920434130780
 MonoBehaviour:
@@ -3745,7 +3745,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 3106083962470613769}
   viewIdField: 0
-  InstantiationId: 22
+  InstantiationId: 8
   isRuntimeInstantiated: 0
 --- !u!114 &3106083962470613769
 MonoBehaviour:
@@ -4006,7 +4006,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 7777127331809025089}
   viewIdField: 0
-  InstantiationId: 12
+  InstantiationId: 23
   isRuntimeInstantiated: 0
 --- !u!114 &8661938987766067426
 MonoBehaviour:
@@ -4367,7 +4367,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 6149411870185021914}
   viewIdField: 0
-  InstantiationId: 24
+  InstantiationId: 6
   isRuntimeInstantiated: 0
 --- !u!114 &6149411870185021914
 MonoBehaviour:
@@ -4618,7 +4618,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 1515480677}
   viewIdField: 0
-  InstantiationId: 8
+  InstantiationId: 19
   isRuntimeInstantiated: 0
 --- !u!114 &1515480677
 MonoBehaviour:
@@ -5002,7 +5002,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 52893354113018740}
   viewIdField: 0
-  InstantiationId: 7
+  InstantiationId: 18
   isRuntimeInstantiated: 0
 --- !u!114 &52893354113018740
 MonoBehaviour:
@@ -5147,7 +5147,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 1515480681}
   viewIdField: 0
-  InstantiationId: 6
+  InstantiationId: 17
   isRuntimeInstantiated: 0
 --- !u!114 &1515480681
 MonoBehaviour:
@@ -5248,7 +5248,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 0}
   viewIdField: 0
-  InstantiationId: 13
+  InstantiationId: 24
   isRuntimeInstantiated: 0
 --- !u!1 &8955028716934363027
 GameObject:
@@ -5294,6 +5294,7 @@ GameObject:
   - component: {fileID: 7047505292255713746}
   - component: {fileID: 999035350875345628}
   - component: {fileID: 6604274865889414768}
+  - component: {fileID: 3465390289161261324}
   m_Layer: 0
   m_Name: Model1
   m_TagString: Untagged
@@ -5595,6 +5596,28 @@ MonoBehaviour:
   - {fileID: 6684113558451987207}
   - {fileID: 2802691871902404871}
   - {fileID: 7492153811498504900}
+--- !u!114 &3465390289161261324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9043824056166634729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  viewIdField: 0
+  InstantiationId: 44
+  isRuntimeInstantiated: 0
 --- !u!1 &9109790585402579552
 GameObject:
   m_ObjectHideFlags: 0
