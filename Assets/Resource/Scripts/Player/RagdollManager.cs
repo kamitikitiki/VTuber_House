@@ -109,17 +109,20 @@ public class RagdollManager : MonoBehaviour
     [PunRPC]
     private void OnRagdoll()
     {
-        basePos = PlayerRig.transform.position;
-        baseRota = PlayerRig.transform.eulerAngles;
-        Head.GetComponent<Rigidbody>().useGravity = true;
-        Head.GetComponent<Rigidbody>().isKinematic = false;
-        Head.GetComponent<Collider>().enabled = true;
-        Head.GetComponent<PhotonTransformView>().enabled = true;
-        for (int i = 0; i < RagdollBone.Length; i++)
+        if(m_PhotonView.IsMine)
         {
-            RagdollBone[i].GetComponent<Rigidbody>().useGravity = true;
-            RagdollBone[i].GetComponent<Rigidbody>().isKinematic = false;
-            RagdollBone[i].GetComponent<Collider>().enabled = true;
+            basePos = PlayerRig.transform.position;
+            baseRota = PlayerRig.transform.eulerAngles;
+            Head.GetComponent<Rigidbody>().useGravity = true;
+            Head.GetComponent<Rigidbody>().isKinematic = false;
+            Head.GetComponent<Collider>().enabled = true;
+            Head.GetComponent<PhotonTransformView>().enabled = true;
+            for (int i = 0; i < RagdollBone.Length; i++)
+            {
+                RagdollBone[i].GetComponent<Rigidbody>().useGravity = true;
+                RagdollBone[i].GetComponent<Rigidbody>().isKinematic = false;
+                RagdollBone[i].GetComponent<Collider>().enabled = true;
+            }
         }
 
         GetComponent<VRIK>().enabled = false;
@@ -130,29 +133,32 @@ public class RagdollManager : MonoBehaviour
     [PunRPC]
     private void OffRagdoll()
     {
-        Head.GetComponent<Rigidbody>().useGravity = false;
-        Head.GetComponent<Rigidbody>().isKinematic = true;
-        Head.GetComponent<Collider>().enabled = false;
-        Head.GetComponent<PhotonTransformView>().enabled = false;
-        for (int i = 0; i < RagdollBone.Length; i++)
+        if (m_PhotonView.IsMine)
         {
-            RagdollBone[i].GetComponent<Rigidbody>().useGravity = false;
-            RagdollBone[i].GetComponent<Rigidbody>().isKinematic = true;
-            RagdollBone[i].GetComponent<Collider>().enabled = false;
-        }
+            Head.GetComponent<Rigidbody>().useGravity = false;
+            Head.GetComponent<Rigidbody>().isKinematic = true;
+            Head.GetComponent<Collider>().enabled = false;
+            Head.GetComponent<PhotonTransformView>().enabled = false;
+            for (int i = 0; i < RagdollBone.Length; i++)
+            {
+                RagdollBone[i].GetComponent<Rigidbody>().useGravity = false;
+                RagdollBone[i].GetComponent<Rigidbody>().isKinematic = true;
+                RagdollBone[i].GetComponent<Collider>().enabled = false;
+            }
 
-        GetComponent<VRIK>().enabled = true;
-        Vector3 reloadPos = basePos;
-        if (m_fResetPosition == true)
-        {
-            reloadPos = Head.transform.position;
+            Vector3 reloadPos = basePos;
+            if (m_fResetPosition == true)
+            {
+                reloadPos = Head.transform.position;
+            }
+            reloadPos.y = basePos.y;
+            baseRota.x = 0;
+            baseRota.z = 0;
+            PlayerRig.transform.position = reloadPos;
+            PlayerRig.transform.eulerAngles = baseRota;
+            m_OnRagdollCount = 0;
+            m_fResetPosition = false;
         }
-        reloadPos.y = basePos.y;
-        baseRota.x = 0;
-        baseRota.z = 0;
-        PlayerRig.transform.position = reloadPos;
-        PlayerRig.transform.eulerAngles = baseRota;
-        m_OnRagdollCount = 0;
-        m_fResetPosition = false;
+        GetComponent<VRIK>().enabled = true;
     }
 }
