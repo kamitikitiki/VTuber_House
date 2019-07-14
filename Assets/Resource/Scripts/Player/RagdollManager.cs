@@ -109,7 +109,6 @@ public class RagdollManager : MonoBehaviourPunCallbacks
     [PunRPC]
     private void OnRagdoll()
     {
-        Debug.Log("test1");
         if(m_PhotonView.IsMine)
         {
             basePos = PlayerRig.transform.position;
@@ -123,10 +122,10 @@ public class RagdollManager : MonoBehaviourPunCallbacks
                 RagdollBone[i].GetComponent<Rigidbody>().useGravity = true;
                 RagdollBone[i].GetComponent<Rigidbody>().isKinematic = false;
                 RagdollBone[i].GetComponent<Collider>().enabled = true;
+                RagdollBone[i].GetComponent<PhotonTransformView>().enabled = true;
             }
         }
 
-        GetComponent<VRIK>().solver.plantFeet = false;
         GetComponent<VRIK>().enabled = false;
 
 
@@ -135,7 +134,6 @@ public class RagdollManager : MonoBehaviourPunCallbacks
     [PunRPC]
     private void OffRagdoll()
     {
-        Debug.Log("test2");
         if (m_PhotonView.IsMine)
         {
             Head.GetComponent<Rigidbody>().useGravity = false;
@@ -147,6 +145,7 @@ public class RagdollManager : MonoBehaviourPunCallbacks
                 RagdollBone[i].GetComponent<Rigidbody>().useGravity = false;
                 RagdollBone[i].GetComponent<Rigidbody>().isKinematic = true;
                 RagdollBone[i].GetComponent<Collider>().enabled = false;
+                RagdollBone[i].GetComponent<PhotonTransformView>().enabled = false;
             }
 
             Vector3 reloadPos = basePos;
@@ -162,7 +161,6 @@ public class RagdollManager : MonoBehaviourPunCallbacks
             m_OnRagdollCount = 0;
             m_fResetPosition = false;
         }
-        GetComponent<VRIK>().solver.plantFeet = true;
         GetComponent<VRIK>().enabled = true;
     }
 }
