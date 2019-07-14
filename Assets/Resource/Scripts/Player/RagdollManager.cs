@@ -109,6 +109,7 @@ public class RagdollManager : MonoBehaviourPunCallbacks
     [PunRPC]
     private void OnRagdoll()
     {
+        Debug.Log("test1");
         if(m_PhotonView.IsMine)
         {
             basePos = PlayerRig.transform.position;
@@ -134,6 +135,7 @@ public class RagdollManager : MonoBehaviourPunCallbacks
     [PunRPC]
     private void OffRagdoll()
     {
+        Debug.Log("test2");
         if (m_PhotonView.IsMine)
         {
             Head.GetComponent<Rigidbody>().useGravity = false;
