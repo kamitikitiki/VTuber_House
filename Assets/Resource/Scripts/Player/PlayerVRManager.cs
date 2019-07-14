@@ -29,6 +29,10 @@ public class PlayerVRManager : MonoBehaviourPunCallbacks
             Wear.layer = LayerMask.NameToLayer("MyPlayer");
             SubMesh.layer = LayerMask.NameToLayer("SubMesh");
         }
+        else
+        {
+            SubMesh.layer = LayerMask.NameToLayer("SubMesh");
+        }
         m_IsInitialize = true;
     }
 
