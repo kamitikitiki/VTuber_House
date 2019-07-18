@@ -6,6 +6,7 @@ public class UndoCreateButton : MonoBehaviour
 {
     public Transform MainMachine;
     public string CreateObjectName;
+    public string ButtonName;
 
     private UndoMachineManager MachineManager;
 
@@ -19,7 +20,7 @@ public class UndoCreateButton : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            MachineManager.CreateUndoObject(CreateObjectName);
+            MachineManager.CreateUndoObject(CreateObjectName,ButtonName);
         }
     }
 }
