@@ -71,6 +71,15 @@ public class RagdollManager : MonoBehaviourPunCallbacks
             }
         }
 
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            SetRagdoll(true, 0, false);
+        }
+        else if (Input.GetKeyDown(KeyCode.B))
+        {
+            SetRagdoll(false, 0, false);
+        }
+
     }
 
     private void LateUpdate()
