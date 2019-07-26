@@ -37,7 +37,7 @@ public class UndoMachineManager : MonoBehaviour
     {
         string createVrName = "UndoPrefabs/" + createObjectName;
 
-
+ 
         
 
         //この関数でネットワーク同期している全員にオブジェクト生成する
@@ -73,6 +73,14 @@ public class UndoMachineManager : MonoBehaviour
             GameObject obj10 = PhotonNetwork.Instantiate(createVrName, CREATEPOSITION_PLAYER10.position, CREATEPOSITION_PLAYER10.rotation);
             obj9.GetComponent<UndoObjectInterface>().SetMoveSpeed(0.05f);
             obj10.GetComponent<UndoObjectInterface>().SetMoveSpeed(0.05f);
+        }
+
+        if(ButtonName == "BB"){
+            GameObject obj11 = PhotonNetwork.Instantiate(createVrName,new Vector3(0,Random.Range (-1.0f, 1.0f),Random.Range (-3.0f, -1.0f)), CREATEPOSITION_PLAYER1.rotation);
+            GameObject obj12 = PhotonNetwork.Instantiate(createVrName,new Vector3(0,Random.Range (-1.0f, 1.0f),Random.Range (3.0f, 1.0f)), CREATEPOSITION_PLAYER2.rotation);
+            obj11.GetComponent<UndoObjectInterface>().SetMoveSpeed(0.05f);
+            obj12.GetComponent<UndoObjectInterface>().SetMoveSpeed(0.05f);
+
         }
 
         //オブジェクト速度設定
