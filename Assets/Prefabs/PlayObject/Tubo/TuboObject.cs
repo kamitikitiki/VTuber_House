@@ -32,6 +32,11 @@ public class TuboObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //２点のどっちが近いか計算
+        //ボディとハンマーの距離
+        float saki_len = Vector3.Distance(m_Saki.position, m_Body.position);
+        float target_len = Vector3.Distance(m_TargetPos.position, m_Body.position);
+
         m_BodyJoint.targetPosition = m_TargetPos.position - m_Saki.position;
 
         float velo = 0;
@@ -39,6 +44,7 @@ public class TuboObject : MonoBehaviour
             velo = 1.0f;
         else
             velo = -1.0f;
+
 
         Vector3 v_Velo = Vector3.zero;
         v_Velo.y = velo;
