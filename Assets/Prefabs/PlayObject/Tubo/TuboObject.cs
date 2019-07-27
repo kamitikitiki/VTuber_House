@@ -37,26 +37,40 @@ public class TuboObject : MonoBehaviour
         //ハンマーとターゲットの距離
         float interval_len = Vector3.Distance(m_Saki.position, m_TargetPos.position);
 
-        if (move_len >= MoveDis && interval_len >= 0.2)
+        //ハンマーの速度
+        float velo = 0;
+        Vector3 v_Velo = Vector3.zero;
+
+        //ターゲットが一定以上動いたら
+        if ( interval_len >= 0.1)
         {
             //２点のどっちが近いか計算
             //ボディとハンマーの距離
             float saki_len = Vector3.Distance(m_Saki.position, m_Body.position);
+            //ボディとターゲットの距離
             float target_len = Vector3.Distance(m_TargetPos.position, m_Body.position);
 
             m_BodyJoint.targetPosition = m_TargetPos.position - m_Saki.position;
 
-            float velo = 0;
-            if (m_TargetPos.position.y - m_Saki.position.y > 0)
+            //ハンマーの速度
+            //float velo = 0;
+
+            if (target_len > saki_len)
                 velo = 1.0f;
             else
                 velo = -1.0f;
 
-            Vector3 v_Velo = Vector3.zero;
+            if(Input.GetKey(KeyCode.Space))
+            {
+                velo = 0;
+            }
+
             v_Velo.y = velo;
-            m_BodyJoint.targetVelocity = v_Velo;
+
+            m_BeforeTargetPos = m_TargetPos.position;
         }
 
-        m_BeforeTargetPos = m_TargetPos.position;
+        m_BodyJoint.targetVelocity = v_Velo;
+        
     }
 }
