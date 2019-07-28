@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TuboObject : MonoBehaviour
 {
+    public float HammerSpeed;
+
     public Transform m_Tubo;
     public Transform m_Body;
     public Transform m_Saki;
@@ -41,8 +43,8 @@ public class TuboObject : MonoBehaviour
         float velo = 0;
         Vector3 v_Velo = Vector3.zero;
 
-        //ターゲットが一定以上動いたら
-        if ( interval_len >= 0.1)
+        //ターゲットとハンマーの距離が一定以上なら
+        if ( interval_len >= MoveDis )
         {
             //２点のどっちが近いか計算
             //ボディとハンマーの距離
@@ -56,9 +58,9 @@ public class TuboObject : MonoBehaviour
             //float velo = 0;
 
             if (target_len > saki_len)
-                velo = 1.0f;
+                velo = HammerSpeed;
             else
-                velo = -1.0f;
+                velo = -HammerSpeed;
 
             if(Input.GetKey(KeyCode.Space))
             {

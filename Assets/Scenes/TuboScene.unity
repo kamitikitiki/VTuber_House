@@ -425,6 +425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec47eaea50a76b54c848e60754f8226f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HammerSpeed: 2
   m_Tubo: {fileID: 3426127990222193510}
   m_Body: {fileID: 3426127989413451798}
   m_Saki: {fileID: 3426127989352890140}
