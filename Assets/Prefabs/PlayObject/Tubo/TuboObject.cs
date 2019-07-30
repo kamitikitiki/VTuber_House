@@ -34,6 +34,23 @@ public class TuboObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //ハンマーの距離の動作
+        MoveLenUpdate();
+
+        //ハンマーの角度の動作
+        MoveAngUpdate();
+    }
+
+    //自クラス内で使用する関数
+
+    private void MoveAngUpdate()
+    {
+        Vector3 targetDir = m_TargetPos.position - m_Body.position;
+        float angle = Vector3.Angle(targetDir, m_Body.forward);
+    }
+
+    private void MoveLenUpdate()
+    {
         //前回動かした座標との距離
         float move_len = Vector3.Distance(m_BeforeTargetPos, m_TargetPos.position);
         //ハンマーとターゲットの距離
@@ -44,7 +61,7 @@ public class TuboObject : MonoBehaviour
         Vector3 v_Velo = Vector3.zero;
 
         //ターゲットとハンマーの距離が一定以上なら
-        if ( interval_len >= MoveDis )
+        if (interval_len >= MoveDis)
         {
             //２点のどっちが近いか計算
             //ボディとハンマーの距離
@@ -62,7 +79,7 @@ public class TuboObject : MonoBehaviour
             else
                 velo = -HammerSpeed;
 
-            if(Input.GetKey(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Space))
             {
                 velo = 0;
             }
@@ -73,6 +90,5 @@ public class TuboObject : MonoBehaviour
         }
 
         m_BodyJoint.targetVelocity = v_Velo;
-        
     }
 }
