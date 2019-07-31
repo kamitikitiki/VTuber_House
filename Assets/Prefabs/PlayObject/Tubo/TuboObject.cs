@@ -45,8 +45,11 @@ public class TuboObject : MonoBehaviour
 
     private void MoveAngUpdate()
     {
-        Vector3 targetDir = (m_TargetPos.position - m_Tubo.position).normalized;
-        Debug.Log(targetDir);
+        //ターゲットの角度
+        Quaternion bodyQua = Quaternion.LookRotation(m_TargetPos.position - m_Tubo.position).normalized;
+        m_TuboJoint.targetRotation = bodyQua;
+
+        Debug.Log(bodyQua);
     }
 
     private void MoveLenUpdate()
@@ -70,9 +73,6 @@ public class TuboObject : MonoBehaviour
             float target_len = Vector3.Distance(m_TargetPos.position, m_Body.position);
 
             m_BodyJoint.targetPosition = m_TargetPos.position - m_Saki.position;
-
-            //ハンマーの速度
-            //float velo = 0;
 
             if (target_len > saki_len)
                 velo = HammerSpeed;
