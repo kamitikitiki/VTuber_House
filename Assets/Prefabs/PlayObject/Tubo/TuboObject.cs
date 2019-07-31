@@ -45,8 +45,8 @@ public class TuboObject : MonoBehaviour
 
     private void MoveAngUpdate()
     {
-        Vector3 targetDir = m_TargetPos.position - m_Body.position;
-        float angle = Vector3.Angle(targetDir, m_Body.forward);
+        Vector3 targetDir = (m_TargetPos.position - m_Tubo.position).normalized;
+        Debug.Log(targetDir);
     }
 
     private void MoveLenUpdate()
