@@ -20,6 +20,7 @@ public class CarController : MonoBehaviour
     public float motor;
     public float steering;
     public float SteeringAngle;
+    public float rotateY;
 
     //対応する視覚的なホイールを見つけます
     //Transformを正しく適用します。
@@ -59,16 +60,17 @@ public class CarController : MonoBehaviour
                 //タイヤの回転
                 foreach (GameObject WheelModelPosition in axleInfo.WheelModelPositions)
                 {
-                    var AngleTarget = Quaternion.Euler(new Vector3(0, steering, 0));
-                    var Now_rot = WheelModelPosition.transform.rotation;
-                    if(Quaternion.Angle(Now_rot,AngleTarget) <= 1)
-                    {
-                        WheelModelPosition.transform.rotation = AngleTarget;
-                    }
-                    else
-                    {
-                        //WheelModelPosition.transform.RotateAround(WheelModelPosition.transform.position,)
-                    }
+                    //現在の回転角度を0～360から-180～180に変換
+                    rotateY = (transform.eulerAngles.y > 180) ?
+                        transform.eulerAngles.y - 360 : transform.eulerAngles.y;
+
+                    //角度制限
+                    float angleY = Mathf.Clamp(steering,-maxSteeringAngle,maxSteeringAngle);
+                    angleY = angleY + rotateY;
+
+                    angleY = (angleY < 0) ? angleY + 360 : angleY;
+
+                    WheelModelPosition.transform.rotation = Quaternion.Euler(0, angleY, 0);
                 }
             }
             if (axleInfo.motor)
