@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class UndoMachineManager : MonoBehaviour
+public class UndoMachineManager : foot_speed
 {
     //オブジェクトの生成位置
     public Transform CREATEPOSITION_PLAYER1;
@@ -44,43 +44,45 @@ public class UndoMachineManager : MonoBehaviour
         if(ButtonName == "kill"){
             GameObject obj1 = PhotonNetwork.Instantiate(createVrName, CREATEPOSITION_PLAYER1.position, CREATEPOSITION_PLAYER1.rotation);
             GameObject obj2 = PhotonNetwork.Instantiate(createVrName, CREATEPOSITION_PLAYER2.position, CREATEPOSITION_PLAYER2.rotation);
-            obj1.GetComponent<UndoObjectInterface>().SetMoveSpeed(0.05f);
-            obj2.GetComponent<UndoObjectInterface>().SetMoveSpeed(0.05f);
+            obj1.GetComponent<UndoObjectInterface>().SetMoveSpeed(ret);
+            obj2.GetComponent<UndoObjectInterface>().SetMoveSpeed(ret);
         }
         //TOP
         if(ButtonName == "Top"){
             GameObject obj3 = PhotonNetwork.Instantiate(createVrName, CREATEPOSITION_PLAYER3.position, CREATEPOSITION_PLAYER3.rotation);
             GameObject obj4 = PhotonNetwork.Instantiate(createVrName, CREATEPOSITION_PLAYER4.position, CREATEPOSITION_PLAYER4.rotation);
-            obj3.GetComponent<UndoObjectInterface>().SetMoveSpeed(0.05f);
-            obj4.GetComponent<UndoObjectInterface>().SetMoveSpeed(0.05f);
+            
+            obj3.GetComponent<UndoObjectInterface>().SetMoveSpeed(ret);
+            obj4.GetComponent<UndoObjectInterface>().SetMoveSpeed(ret);
         }
         //UNDER
         if(ButtonName == "Under"){
             GameObject obj5 = PhotonNetwork.Instantiate(createVrName, CREATEPOSITION_PLAYER5.position, CREATEPOSITION_PLAYER5.rotation);
             GameObject obj6 = PhotonNetwork.Instantiate(createVrName, CREATEPOSITION_PLAYER6.position, CREATEPOSITION_PLAYER6.rotation);
-            obj5.GetComponent<UndoObjectInterface>().SetMoveSpeed(0.05f);
-            obj6.GetComponent<UndoObjectInterface>().SetMoveSpeed(0.05f);
+            obj5.GetComponent<UndoObjectInterface>().SetMoveSpeed(ret);
+            obj6.GetComponent<UndoObjectInterface>().SetMoveSpeed(ret);
         }
         //
         if(ButtonName == "left"){
             GameObject obj7 = PhotonNetwork.Instantiate(createVrName, CREATEPOSITION_PLAYER7.position, CREATEPOSITION_PLAYER7.rotation);
             GameObject obj8 = PhotonNetwork.Instantiate(createVrName, CREATEPOSITION_PLAYER8.position, CREATEPOSITION_PLAYER8.rotation);
-            obj7.GetComponent<UndoObjectInterface>().SetMoveSpeed(0.05f);
-            obj8.GetComponent<UndoObjectInterface>().SetMoveSpeed(0.05f);
+            obj7.GetComponent<UndoObjectInterface>().SetMoveSpeed(ret);
+            obj8.GetComponent<UndoObjectInterface>().SetMoveSpeed(ret);
         }
+
         if(ButtonName == "right"){
             GameObject obj9 = PhotonNetwork.Instantiate(createVrName, CREATEPOSITION_PLAYER9.position, CREATEPOSITION_PLAYER9.rotation);
             GameObject obj10 = PhotonNetwork.Instantiate(createVrName, CREATEPOSITION_PLAYER10.position, CREATEPOSITION_PLAYER10.rotation);
-            obj9.GetComponent<UndoObjectInterface>().SetMoveSpeed(0.05f);
-            obj10.GetComponent<UndoObjectInterface>().SetMoveSpeed(0.05f);
+            obj9.GetComponent<UndoObjectInterface>().SetMoveSpeed(ret);
+            obj10.GetComponent<UndoObjectInterface>().SetMoveSpeed(ret);
         }
 
         if(ButtonName == "BB"){
-            GameObject obj11 = PhotonNetwork.Instantiate(createVrName,new Vector3(0,Random.Range (-1.0f, 1.0f),Random.Range (-3.0f, -1.0f)), CREATEPOSITION_PLAYER1.rotation);
-            GameObject obj12 = PhotonNetwork.Instantiate(createVrName,new Vector3(0,Random.Range (-1.0f, 1.0f),Random.Range (3.0f, 1.0f)), CREATEPOSITION_PLAYER2.rotation);
-            obj11.GetComponent<UndoObjectInterface>().SetMoveSpeed(0.05f);
-            obj12.GetComponent<UndoObjectInterface>().SetMoveSpeed(0.05f);
-
+            //new vector3(奥手前、高さ、横)
+            GameObject obj11 = PhotonNetwork.Instantiate(createVrName,new Vector3(-7,Random.Range (3.0f, 1.0f),Random.Range (-3.0f, -1.0f)), CREATEPOSITION_PLAYER1.rotation);
+            GameObject obj12 = PhotonNetwork.Instantiate(createVrName,new Vector3(-7,Random.Range (3.0f, 1.0f),Random.Range (3.0f, 1.0f)), CREATEPOSITION_PLAYER2.rotation);
+            obj11.GetComponent<UndoObjectInterface>().SetMoveSpeed(ret);
+            obj12.GetComponent<UndoObjectInterface>().SetMoveSpeed(ret);
         }
 
         //オブジェクト速度設定

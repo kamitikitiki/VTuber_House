@@ -20,7 +20,7 @@ public class UndoCreateButton : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            MachineManager.CreateUndoObject(CreateObjectName,ButtonName);
-        }
+           MachineManager.CreateUndoObject(CreateObjectName, ButtonName);
+        }                  
     }
 }
