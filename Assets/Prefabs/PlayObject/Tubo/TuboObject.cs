@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TuboObject : MonoBehaviour
 {
+    public Transform hako;
+
     public float HammerSpeed;
 
     public Transform m_Tubo;
@@ -48,10 +50,12 @@ public class TuboObject : MonoBehaviour
         //ターゲットの角度
         Quaternion bodyQua = m_Body.rotation;
         Quaternion bodyQuaInvers = Quaternion.Inverse(bodyQua);
-        Quaternion bodyNormal = bodyQua * bodyQuaInvers;
-        Quaternion target = Quaternion.LookRotation(m_TargetPos.position);
+        Quaternion target = Quaternion.LookRotation(m_TargetPos.position - m_Body.position);
+        m_BodyJoint.targetRotation = target * bodyQuaInvers;
 
-        Debug.Log(bodyNormal);
+        hako.rotation = target;
+
+        Debug.Log(target);
     }
 
     private void MoveLenUpdate()
