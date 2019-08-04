@@ -51,11 +51,12 @@ public class TuboObject : MonoBehaviour
         Quaternion bodyQua = m_Body.rotation;
         Quaternion bodyQuaInvers = Quaternion.Inverse(bodyQua);
         Quaternion target = Quaternion.LookRotation(m_TargetPos.position - m_Body.position);
-        m_BodyJoint.targetRotation = target * bodyQuaInvers;
+        //m_TuboJoint.targetRotation = target;
 
         hako.rotation = target;
+        Vector3 sa = target.eulerAngles - bodyQua.eulerAngles;
 
-        Debug.Log(target);
+        Debug.Log(sa);
     }
 
     private void MoveLenUpdate()
