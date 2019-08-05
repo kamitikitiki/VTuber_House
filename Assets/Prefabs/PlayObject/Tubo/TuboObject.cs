@@ -48,15 +48,11 @@ public class TuboObject : MonoBehaviour
     private void MoveAngUpdate()
     {
         //ターゲットの角度
-        Quaternion bodyQua = m_Body.rotation;
-        Quaternion bodyQuaInvers = Quaternion.Inverse(bodyQua);
         Quaternion target = Quaternion.LookRotation(m_TargetPos.position - m_Body.position);
-        //m_TuboJoint.targetRotation = target;
 
-        hako.rotation = target;
-        Vector3 sa = target.eulerAngles - bodyQua.eulerAngles;
+        m_TuboJoint.targetRotation = target;
 
-        Debug.Log(sa);
+        Debug.Log(target);
     }
 
     private void MoveLenUpdate()
@@ -91,7 +87,7 @@ public class TuboObject : MonoBehaviour
                 velo = 0;
             }
 
-            v_Velo.y = velo;
+            v_Velo.z = velo;
 
             m_BeforeTargetPos = m_TargetPos.position;
         }
