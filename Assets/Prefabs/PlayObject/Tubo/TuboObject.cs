@@ -49,10 +49,9 @@ public class TuboObject : MonoBehaviour
     {
         //ターゲットの角度
         Quaternion target = Quaternion.LookRotation(m_TargetPos.position - m_Body.position);
-
-        m_TuboJoint.targetRotation = target;
-
-        Debug.Log(target);
+        Vector3 setVec = target.eulerAngles - m_Tubo.transform.rotation.eulerAngles;
+        Quaternion setRotation = Quaternion.Euler(setVec);
+        m_TuboJoint.targetRotation = setRotation;
     }
 
     private void MoveLenUpdate()
