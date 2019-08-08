@@ -22,10 +22,10 @@ public class CarControllerEditor : Editor
         //入力されたステータスを設定
         _target.driver = (DriverState)EditorGUILayout.EnumPopup("driver", _target.driver);
 
-        if(seat.driver == DriverState.driver)
-        {
-            EditorGUILayout.LabelField("SteeringWheel_Left", seat.SteeringWheel.SteeringWheel_Left.ToString());
-            EditorGUILayout.LabelField("SteeringWheel_Right", seat.SteeringWheel.SteeringWheel_Right.ToString());
-        }
+        //if(seat.driver == DriverState.driver)
+        //{
+        //    EditorGUILayout.LabelField("SteeringWheel_Left", seat.SteeringWheel.SteeringWheel_Left.ToString());
+        //    EditorGUILayout.LabelField("SteeringWheel_Right", seat.SteeringWheel.SteeringWheel_Right.ToString());
+        //}
     }
 }
