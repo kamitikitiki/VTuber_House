@@ -517,7 +517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hako: {fileID: 948707954}
-  HammerSpeed: 2
+  HammerSpeed: 3
   m_Tubo: {fileID: 3426127990222193510}
   m_Body: {fileID: 3426127989413451798}
   m_Saki: {fileID: 3426127989352890140}
