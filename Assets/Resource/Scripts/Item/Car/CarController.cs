@@ -2,27 +2,52 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//車軸
 [System.Serializable]
 public class AxleInfo
 {
-    public WheelCollider WheelCollider_Left;
-    public WheelCollider WheelCollider_Right;
-    public Transform WheelTransform_Left;
-    public Transform WheelTransform_Right;
-    public bool motor;
-    public bool steering;
+    public WheelCollider WheelCollider_Left;        //左ホイールコライダー
+    public WheelCollider WheelCollider_Right;       //右ホイールコライダー
+    public Transform WheelTransform_Left;           //左タイヤボーン
+    public Transform WheelTransform_Right;          //右タイヤボーン
+    public bool motor;                              //モーターにトルクを加えるフラグ
+    public bool steering;                           //ハンドルの角度を加えるフラグ
+}
+
+//ドライバーステータス
+public enum DriverState { none, driver }
+
+[System.Serializable]
+public class SteeringWheel
+{
+    public Transform SteeringWheel_Left;
+    public Transform SteeringWheel_Right;
+}
+
+//シート
+[System.Serializable]
+public class SeatInfo
+{
+    public Transform Neck;
+    public Transform Spine;
+    public Transform LeftReg;
+    public Transform RightReg;
+    public DriverState driver;
+    //public SteeringWheel SteeringWheel;
 }
 
 public class CarController : MonoBehaviour
 {
+
     public List<AxleInfo> axleInfos;
+    public List<SeatInfo> seatInfos;
     public float maxMotorTorque;                    //トルクの最大数
     public float maxSteeringAngle;                  //ハンドルの最大回転角度
     public float Speed;                             //加速度
     public float Breaking;                          //ブレーキ値
 
-    public float motor;
-    public float steering;
+    //public float motor;
+    //public float steering;
     public bool BreakingFlg;
 
     private Rigidbody rb;
@@ -44,11 +69,11 @@ public class CarController : MonoBehaviour
 
     public void FixedUpdate()
     {
-        //float motor = maxMotorTorque * Input.GetAxis("Vertical");
-        //float steering = maxSteeringAngle * Input.GetAxis("Horizontal");
+        float motor = maxMotorTorque * Input.GetAxis("Vertical");
+        float steering = maxSteeringAngle * Input.GetAxis("Horizontal");
 
-        motor = maxMotorTorque * Input.GetAxis("Vertical");
-        steering = maxSteeringAngle * Input.GetAxis("Horizontal");
+        //motor = maxMotorTorque * Input.GetAxis("Vertical");
+        //steering = maxSteeringAngle * Input.GetAxis("Horizontal");
         BreakingFlg = Input.GetKey(KeyCode.Space);
 
         rb.AddForce(new Vector3(0.0f, 0.0f, motor) * Speed, ForceMode.Impulse);
@@ -68,7 +93,7 @@ public class CarController : MonoBehaviour
                 axleInfo.WheelCollider_Left.motorTorque = motor;
                 axleInfo.WheelCollider_Right.motorTorque = motor;
             }
-            //ブレーキを渡す
+            //ブレーキをかける
             if(BreakingFlg)
             {
                 axleInfo.WheelCollider_Left.brakeTorque = Breaking;
