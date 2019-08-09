@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
+using Photon.Realtime;
+using RootMotion.FinalIK;
 using UnityEngine;
-
-//車軸
+//車軸情報
 [System.Serializable]
 public class AxleInfo
 {
@@ -14,9 +16,10 @@ public class AxleInfo
     public bool steering;                           //ハンドルの角度を加えるフラグ
 }
 
-//ドライバーステータス
-public enum DriverState { none, driver }
+//シートステータス
+public enum SeatState { none, driver, front, backleft, backright}
 
+//ハンドル
 [System.Serializable]
 public class SteeringWheel
 {
@@ -24,21 +27,45 @@ public class SteeringWheel
     public Transform SteeringWheel_Right;
 }
 
-//シート
+//シート情報
 [System.Serializable]
 public class SeatInfo
 {
     public Transform Neck;
     public Transform Spine;
-    public Transform LeftReg;
-    public Transform RightReg;
-    public DriverState driver;
-    //public SteeringWheel SteeringWheel;
+    public Transform LeftFoot;
+    public Transform RightFoot;
+    public SeatState seatState;
+
+    [SerializeField]//[HideInInspector]
+    private SteeringWheel SteeringWheel;
+}
+
+//車のプレイヤー情報
+public class CarPlayerInfo
+{
+    private GameObject Player;
+    private Transform Neck;
+    private Transform Spine;
+    private Transform LeftFoot;
+    private Transform RightFoot;
+
+    public SeatState seatState;
+
+    public CarPlayerInfo()
+    {
+        Player = null;
+        Neck = null;
+        Spine = null;
+        LeftFoot = null;
+        RightFoot = null;
+
+        seatState = SeatState.none;
+    }
 }
 
 public class CarController : MonoBehaviour
 {
-
     public List<AxleInfo> axleInfos;
     public List<SeatInfo> seatInfos;
     public float maxMotorTorque;                    //トルクの最大数
@@ -51,20 +78,15 @@ public class CarController : MonoBehaviour
     public bool BreakingFlg;
 
     private Rigidbody rb;
+    private PhotonView View;
+    private List<CarPlayerInfo> carplayerInfos;
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
         BreakingFlg = false;
-    }
 
-    //WheelColliderのTransformをタイヤ（描画ボーン）のTransformに適用する
-    public void ApplyLocalPositionToVisuals(WheelCollider wc,Transform wt)
-    {
-        wc.GetWorldPose(out Vector3 position, out Quaternion rotation);
-
-        wt.transform.position = position;
-        wt.transform.rotation = rotation * Quaternion.Euler(0.0f,180.0f,0.0f);
+        rb = GetComponent<Rigidbody>();
+        View = GetComponent<PhotonView>();
     }
 
     public void FixedUpdate()
@@ -108,5 +130,22 @@ public class CarController : MonoBehaviour
             ApplyLocalPositionToVisuals(axleInfo.WheelCollider_Left,axleInfo.WheelTransform_Left);
             ApplyLocalPositionToVisuals(axleInfo.WheelCollider_Right,axleInfo.WheelTransform_Right);
         }
+
+        
     }
+
+    public void Update()
+    {
+        
+    }
+
+    //WheelColliderのTransformをタイヤ（描画ボーン）のTransformに適用する
+    public void ApplyLocalPositionToVisuals(WheelCollider wc, Transform wt)
+    {
+        wc.GetWorldPose(out Vector3 position, out Quaternion rotation);
+
+        wt.transform.position = position;
+        wt.transform.rotation = rotation * Quaternion.Euler(0.0f, 180.0f, 0.0f);
+    }
+
 }
