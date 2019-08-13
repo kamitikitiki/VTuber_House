@@ -4,6 +4,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using RootMotion.FinalIK;
 using UnityEngine;
+
 //車軸情報
 [System.Serializable]
 public class AxleInfo
@@ -36,6 +37,7 @@ public class SeatInfo
     public Transform LeftFoot;
     public Transform RightFoot;
     public SeatState seatState;
+    public bool OnSeatFlg;
 
     [SerializeField]//[HideInInspector]
     private SteeringWheel SteeringWheel;
@@ -62,9 +64,23 @@ public class CarPlayerInfo
 
         seatState = SeatState.none;
     }
+
+    public void SetState(GameObject player, SeatState seat)
+    {
+        Player = player;
+        seatState = seat;
+
+        VRIK vrik = player.transform.GetChild(1).GetComponent<VRIK>();
+        Neck = vrik.references.neck;
+        Spine = vrik.references.spine;
+        LeftFoot = vrik.references.leftFoot;
+        RightFoot = vrik.references.rightFoot;
+    }
+
+    //public VRIK 
 }
 
-public class CarController : MonoBehaviour
+public class CarController : MonoBehaviourPunCallbacks//, IPunOwnershipCallbacks
 {
     public List<AxleInfo> axleInfos;
     public List<SeatInfo> seatInfos;
@@ -80,6 +96,7 @@ public class CarController : MonoBehaviour
     private Rigidbody rb;
     private PhotonView View;
     private List<CarPlayerInfo> carplayerInfos;
+    private int SeatCount;
 
     private void Start()
     {
@@ -87,6 +104,7 @@ public class CarController : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
         View = GetComponent<PhotonView>();
+        SeatCount = seatInfos.Count;
     }
 
     public void FixedUpdate()
@@ -136,7 +154,41 @@ public class CarController : MonoBehaviour
 
     public void Update()
     {
-        
+        if(SeatCount != seatInfos.Count)
+        {
+            //初期化
+
+
+            SeatCount = seatInfos.Count;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        //コントローラーのキーを設定予定
+        if (true)
+        {
+            if (other.transform.tag == "Player")
+            {
+                foreach (SeatInfo seatInfo in seatInfos)
+                {
+                    if (!seatInfo.OnSeatFlg)
+                    {
+                        //
+                        foreach (CarPlayerInfo carplayerInfo in carplayerInfos)
+                        {
+                            if (carplayerInfo.seatState == SeatState.none)
+                            {
+                                View.RequestOwnership();//なにこれ？
+                                carplayerInfo.SetState(other.transform.root.gameObject, seatInfo.seatState);
+                            }
+                        }
+
+                        seatInfo.OnSeatFlg = true;
+                    }
+                }
+            }
+        }
     }
 
     //WheelColliderのTransformをタイヤ（描画ボーン）のTransformに適用する
@@ -148,4 +200,19 @@ public class CarController : MonoBehaviour
         wt.transform.rotation = rotation * Quaternion.Euler(0.0f, 180.0f, 0.0f);
     }
 
+
+
+
+    //いるかわからん
+    private void SetState(CarPlayerInfo carplayerInfo)
+    {
+        //ラグドールの設定
+
+        //プレイヤーの各部位を取得
+         
+    }
+
+    //わからん
+    //public void OnOwnershipRequest(PhotonView targetView, Player requestingPlayer)
+    //public void OnOwnershipTransfered(PhotonView targetView, Player previousOwner)
 }
