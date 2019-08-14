@@ -40,18 +40,20 @@ public class SeatInfo
     public bool OnSeatFlg;
 
     [SerializeField]//[HideInInspector]
-    private SteeringWheel SteeringWheel;
+    public SteeringWheel SteeringWheel;
 }
 
 //車のプレイヤー情報
 public class CarPlayerInfo
 {
-    private GameObject Player;
     private Transform Neck;
     private Transform Spine;
     private Transform LeftFoot;
     private Transform RightFoot;
+    private Transform LeftHand;
+    private Transform RightHand;
 
+    public GameObject Player;
     public SeatState seatState;
 
     public CarPlayerInfo()
@@ -61,20 +63,39 @@ public class CarPlayerInfo
         Spine = null;
         LeftFoot = null;
         RightFoot = null;
+        LeftHand = null;
+        RightHand = null;
 
         seatState = SeatState.none;
     }
 
-    public void SetState(GameObject player, SeatState seat)
+    public void SetState(GameObject player, SeatInfo seat)
     {
         Player = player;
-        seatState = seat;
+        seatState = seat.seatState;
 
         VRIK vrik = player.transform.GetChild(1).GetComponent<VRIK>();
         Neck = vrik.references.neck;
         Spine = vrik.references.spine;
         LeftFoot = vrik.references.leftFoot;
         RightFoot = vrik.references.rightFoot;
+
+        Neck.SetPositionAndRotation(seat.Neck.position, seat.Neck.rotation);
+        Spine.SetPositionAndRotation(seat.Spine.position, seat.Spine.rotation);
+        LeftFoot.SetPositionAndRotation(seat.LeftFoot.position, seat.LeftFoot.rotation);
+        RightFoot.SetPositionAndRotation(seat.RightFoot.position, seat.RightFoot.rotation);
+
+        player.transform.GetChild(1).GetComponent<VRIK>().enabled = false;
+
+
+        if (seat.seatState == SeatState.driver)
+        {
+            LeftHand = vrik.references.leftHand;
+            RightHand = vrik.references.rightHand;
+
+            LeftHand.SetPositionAndRotation(seat.SteeringWheel.SteeringWheel_Left.position, seat.SteeringWheel.SteeringWheel_Left.rotation);
+            RightHand.SetPositionAndRotation(seat.SteeringWheel.SteeringWheel_Right.position, seat.SteeringWheel.SteeringWheel_Right.rotation);
+        }
     }
 
     //public VRIK 
@@ -95,12 +116,14 @@ public class CarController : MonoBehaviourPunCallbacks//, IPunOwnershipCallbacks
 
     private Rigidbody rb;
     private PhotonView View;
-    private List<CarPlayerInfo> carplayerInfos;
+    //private List<CarPlayerInfo> carplayerInfos;
+    private CarPlayerInfo carplayerInfo;
     private int SeatCount;
 
     private void Start()
     {
         BreakingFlg = false;
+        carplayerInfo = new CarPlayerInfo();
 
         rb = GetComponent<Rigidbody>();
         View = GetComponent<PhotonView>();
@@ -154,7 +177,10 @@ public class CarController : MonoBehaviourPunCallbacks//, IPunOwnershipCallbacks
 
     public void Update()
     {
-        if(SeatCount != seatInfos.Count)
+        carplayerInfo.Player.transform.position = transform.position;
+        carplayerInfo.Player.transform.rotation = transform.rotation;
+
+        if (SeatCount != seatInfos.Count)
         {
             //初期化
 
@@ -172,23 +198,36 @@ public class CarController : MonoBehaviourPunCallbacks//, IPunOwnershipCallbacks
             {
                 foreach (SeatInfo seatInfo in seatInfos)
                 {
-                    if (!seatInfo.OnSeatFlg)
+                    if (!seatInfo.OnSeatFlg && seatInfo.seatState == SeatState.driver)
                     {
                         //
-                        foreach (CarPlayerInfo carplayerInfo in carplayerInfos)
-                        {
-                            if (carplayerInfo.seatState == SeatState.none)
-                            {
-                                View.RequestOwnership();//なにこれ？
-                                carplayerInfo.SetState(other.transform.root.gameObject, seatInfo.seatState);
-                            }
-                        }
+                        CarPlayerSetting(other, seatInfo);
 
                         seatInfo.OnSeatFlg = true;
                     }
                 }
             }
         }
+    }
+
+    private void CarPlayerSetting(Collider other, SeatInfo seatInfo)
+    {
+        if (carplayerInfo.seatState == SeatState.none)
+        {
+            View.RequestOwnership();//なにこれ？
+            carplayerInfo.SetState(other.transform.root.gameObject, seatInfo);
+
+        }
+        /*
+        foreach (CarPlayerInfo carplayerInfo in carplayerInfos)
+        {
+            if (carplayerInfo.seatState == SeatState.none)
+            {
+                View.RequestOwnership();//なにこれ？
+                carplayerInfo.SetState(other.transform.root.gameObject, seatInfo.seatState);
+            }
+        }
+        */
     }
 
     //WheelColliderのTransformをタイヤ（描画ボーン）のTransformに適用する
@@ -213,6 +252,20 @@ public class CarController : MonoBehaviourPunCallbacks//, IPunOwnershipCallbacks
     }
 
     //わからん
-    //public void OnOwnershipRequest(PhotonView targetView, Player requestingPlayer)
-    //public void OnOwnershipTransfered(PhotonView targetView, Player previousOwner)
+    public void OnOwnershipRequest(PhotonView targetView, Player requestingPlayer)
+    {
+        targetView.TransferOwnership(requestingPlayer);
+    }
+    public void OnOwnershipTransfered(PhotonView targetView, Player previousOwner)
+    {
+        /*
+        foreach (CarPlayerInfo carplayerInfo in carplayerInfos)
+        {
+            if (carplayerInfo.seatState == SeatState.none)
+            {
+
+            }
+        }
+        */
+    }
 }
