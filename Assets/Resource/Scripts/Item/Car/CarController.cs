@@ -32,6 +32,7 @@ public class SteeringWheel
 [System.Serializable]
 public class SeatInfo
 {
+    public Transform Head;
     public Transform Neck;
     public Transform Spine;
     public Transform LeftFoot;
@@ -53,12 +54,20 @@ public class CarPlayerInfo
     private Transform LeftHand;
     private Transform RightHand;
 
+    //仮
+    private Transform Head;
+    private FixedJoint JointHead;
+    private FixedJoint JointLeftHand;
+    private FixedJoint JointRightHand;
+    private FixedJoint JointLeftFoot;
+    private FixedJoint JointRightFoot;
+    //
+
     public GameObject Player;
     public SeatState seatState;
 
     public CarPlayerInfo()
     {
-        Player = null;
         Neck = null;
         Spine = null;
         LeftFoot = null;
@@ -66,15 +75,34 @@ public class CarPlayerInfo
         LeftHand = null;
         RightHand = null;
 
+        Head = null;
+        JointHead = null;
+        JointLeftHand = null;
+        JointRightHand = null;
+        JointLeftFoot = null;
+        JointRightFoot = null;
+
+        Player = null;
         seatState = SeatState.none;
     }
 
     public void SetState(GameObject player, SeatInfo seat)
     {
+        //プレイヤーの各部位を車の座席にセットする
+
         Player = player;
         seatState = seat.seatState;
 
+        //player.transform.GetChild(1).GetComponent<RagdollManager>().SetRagdoll(true, 0, false);
+
         VRIK vrik = player.transform.GetChild(1).GetComponent<VRIK>();
+
+        //vrik.references.neck.SetPositionAndRotation(seat.Neck.position, seat.Neck.rotation);
+        //vrik.references.spine.SetPositionAndRotation(seat.Spine.position, seat.Spine.rotation);
+        //vrik.references.leftFoot.SetPositionAndRotation(seat.LeftFoot.position, seat.LeftFoot.rotation);
+        //vrik.references.rightFoot.SetPositionAndRotation(seat.RightFoot.position, seat.RightFoot.rotation);
+
+        
         Neck = vrik.references.neck;
         Spine = vrik.references.spine;
         LeftFoot = vrik.references.leftFoot;
@@ -84,17 +112,31 @@ public class CarPlayerInfo
         Spine.SetPositionAndRotation(seat.Spine.position, seat.Spine.rotation);
         LeftFoot.SetPositionAndRotation(seat.LeftFoot.position, seat.LeftFoot.rotation);
         RightFoot.SetPositionAndRotation(seat.RightFoot.position, seat.RightFoot.rotation);
+        
+        //vrik.references.head.SetPositionAndRotation(seat.Head.position, seat.Head.rotation);
+        //Head = vrik.references.head;
+        //Head.SetPositionAndRotation(seat.Head.position, seat.Head.rotation);
 
-        player.transform.GetChild(1).GetComponent<VRIK>().enabled = false;
+        //JointHead.connectedBody = Head.GetComponent<Rigidbody>();
+        //JointLeftFoot.connectedBody = LeftFoot.GetComponent<Rigidbody>();
+        //JointRightFoot.connectedBody = RightFoot.GetComponent<Rigidbody>();
 
+        //player.transform.GetChild(1).GetComponent<VRIK>().enabled = false;
 
+        //ドライバーの時だけ
         if (seat.seatState == SeatState.driver)
         {
+            //vrik.references.leftHand.SetPositionAndRotation(seat.SteeringWheel.SteeringWheel_Left.position, seat.SteeringWheel.SteeringWheel_Left.rotation);
+            //vrik.references.rightHand.SetPositionAndRotation(seat.SteeringWheel.SteeringWheel_Right.position, seat.SteeringWheel.SteeringWheel_Right.rotation);
+            
             LeftHand = vrik.references.leftHand;
             RightHand = vrik.references.rightHand;
 
             LeftHand.SetPositionAndRotation(seat.SteeringWheel.SteeringWheel_Left.position, seat.SteeringWheel.SteeringWheel_Left.rotation);
             RightHand.SetPositionAndRotation(seat.SteeringWheel.SteeringWheel_Right.position, seat.SteeringWheel.SteeringWheel_Right.rotation);
+
+            //JointLeftHand.connectedBody = LeftHand.GetComponent<Rigidbody>();
+            //JointRightHand.connectedBody = RightHand.GetComponent<Rigidbody>();
         }
     }
 
