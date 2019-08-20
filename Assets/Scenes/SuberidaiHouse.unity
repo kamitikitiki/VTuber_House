@@ -1260,7 +1260,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1103346812
 Transform:
   m_ObjectHideFlags: 0
@@ -2114,6 +2114,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 54171588890509322, guid: ba541f027dbcb8e44a6c82d8ab40635a,
+        type: 3}
+      propertyPath: m_Name
+      value: kagamin_end
+      objectReference: {fileID: 0}
     - target: {fileID: 54171588890509321, guid: ba541f027dbcb8e44a6c82d8ab40635a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2168,11 +2173,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.26200002
-      objectReference: {fileID: 0}
-    - target: {fileID: 54171588890509322, guid: ba541f027dbcb8e44a6c82d8ab40635a,
-        type: 3}
-      propertyPath: m_Name
-      value: kagamin_end
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba541f027dbcb8e44a6c82d8ab40635a, type: 3}
