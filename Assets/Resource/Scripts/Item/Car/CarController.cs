@@ -55,12 +55,12 @@ public class CarPlayerInfo
     private Transform RightHand;
 
     //仮
-    private Transform Head;
-    private FixedJoint JointHead;
-    private FixedJoint JointLeftHand;
-    private FixedJoint JointRightHand;
-    private FixedJoint JointLeftFoot;
-    private FixedJoint JointRightFoot;
+    //private Transform Head;
+    //private FixedJoint JointHead;
+    //private FixedJoint JointLeftHand;
+    //private FixedJoint JointRightHand;
+    //private FixedJoint JointLeftFoot;
+    //private FixedJoint JointRightFoot;
     //
 
     public GameObject Player;
@@ -75,12 +75,14 @@ public class CarPlayerInfo
         LeftHand = null;
         RightHand = null;
 
-        Head = null;
+        //Head = null;
+        /*
         JointHead = null;
         JointLeftHand = null;
         JointRightHand = null;
         JointLeftFoot = null;
         JointRightFoot = null;
+        */
 
         Player = null;
         seatState = SeatState.none;
@@ -219,9 +221,10 @@ public class CarController : MonoBehaviourPunCallbacks//, IPunOwnershipCallbacks
 
     public void Update()
     {
-        carplayerInfo.Player.transform.position = transform.position;
-        carplayerInfo.Player.transform.rotation = transform.rotation;
+        //carplayerInfo.Player.transform.position = transform.position;
+        //carplayerInfo.Player.transform.rotation = transform.rotation;
 
+        /*
         if (SeatCount != seatInfos.Count)
         {
             //初期化
@@ -229,11 +232,13 @@ public class CarController : MonoBehaviourPunCallbacks//, IPunOwnershipCallbacks
 
             SeatCount = seatInfos.Count;
         }
+        */
     }
 
     private void OnTriggerStay(Collider other)
     {
         //コントローラーのキーを設定予定
+        /*
         if (true)
         {
             if (other.transform.tag == "Player")
@@ -250,16 +255,20 @@ public class CarController : MonoBehaviourPunCallbacks//, IPunOwnershipCallbacks
                 }
             }
         }
+        */
     }
 
     private void CarPlayerSetting(Collider other, SeatInfo seatInfo)
     {
+        /*
         if (carplayerInfo.seatState == SeatState.none)
         {
             View.RequestOwnership();//なにこれ？
             carplayerInfo.SetState(other.transform.root.gameObject, seatInfo);
 
         }
+        */
+
         /*
         foreach (CarPlayerInfo carplayerInfo in carplayerInfos)
         {
