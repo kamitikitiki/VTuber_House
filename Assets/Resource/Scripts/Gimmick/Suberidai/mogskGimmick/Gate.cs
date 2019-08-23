@@ -13,8 +13,8 @@ public class Gate : MonoBehaviour
     public float speed;
     public float movemax;
 
-    private bool Gate_flag;
-    private float move;
+    public bool Gate_flag;
+    public float move;
 
     private void Start()
     {
