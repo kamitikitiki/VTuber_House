@@ -1361,6 +1361,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Kamitiki_Suberidai
       objectReference: {fileID: 0}
+    - target: {fileID: 9005818308611229903, guid: 92ce6c3a38217404d8aa4cd7dd4f86cf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9005818308611229900, guid: 92ce6c3a38217404d8aa4cd7dd4f86cf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1416,8 +1421,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4617880717645779779, guid: 92ce6c3a38217404d8aa4cd7dd4f86cf,
+        type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 1980834365}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92ce6c3a38217404d8aa4cd7dd4f86cf, type: 3}
+--- !u!4 &1980834365 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3027531540939944210, guid: 262fef7e7994e0f4db1852c464c3eb4e,
+    type: 3}
+  m_PrefabInstance: {fileID: 3027531540102189871}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2121612480
 GameObject:
   m_ObjectHideFlags: 0
