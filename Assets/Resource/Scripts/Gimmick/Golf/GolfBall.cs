@@ -25,6 +25,7 @@ public class GolfBall : MonoBehaviour
             if (transform.GetComponent<Rigidbody>().velocity == Vector3.zero)
             {
                 m_Shoot = false;
+                PlayerTransform.position = this.transform.position;
                 Debug.Log("Ball Stop");
             }
         }
