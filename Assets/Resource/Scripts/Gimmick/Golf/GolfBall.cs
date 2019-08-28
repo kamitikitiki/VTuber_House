@@ -9,6 +9,9 @@ public class GolfBall : MonoBehaviour
 
     private bool m_Shoot;
 
+    public float vx;
+    public float vz;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +37,8 @@ public class GolfBall : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Vector3 velo = Vector3.zero;
-            velo.z = 300;
+            velo.x = vx;
+            velo.z = vz;
             BallmoveStart(velo);
         }
     }
