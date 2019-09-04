@@ -7,6 +7,8 @@ public class GolfBall : MonoBehaviour
 
     public Transform PlayerTransform;
 
+    public Vector3 speed;
+
     private bool m_Shoot;
 
     // Start is called before the first frame update
@@ -34,7 +36,8 @@ public class GolfBall : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Vector3 velo = Vector3.zero;
-            velo.z = 300;
+            velo.x = speed.x;
+            velo.z = speed.z;
             BallmoveStart(velo);
         }
     }
