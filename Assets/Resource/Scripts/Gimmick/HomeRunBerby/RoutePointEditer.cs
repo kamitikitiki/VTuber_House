@@ -12,6 +12,9 @@ public class RoutePointEditer : MonoBehaviour
     {
         if(draw_sphere)
         {
+#if UNITY_EDITOR
+            UnityEditor.Handles.Label(transform.position, transform.name);
+#endif
             Gizmos.color = sphereColor;
             Gizmos.DrawSphere(transform.position, sphere_radius);
         }
