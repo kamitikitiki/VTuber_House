@@ -6,6 +6,7 @@ public enum RouteMoveStatus
 {
     stop,
     move,
+    hit,
     end
 }
 
@@ -17,20 +18,14 @@ public class RouteParameter
     public float time;
     public bool CurveFlag = false;
     public AnimationCurve Curve;
-
-    [HideInInspector]
-    [System.NonSerialized]
-    public RouteMoveStatus moveEnd;
-
-    [HideInInspector]
-    [System.NonSerialized]
-    public bool nextRoute;    
 }
 
-public class PitcheingLine : MonoBehaviour
+public class PitchingLine : MonoBehaviour
 {
     [SerializeField]
+    public Transform ball;
     public List<RouteParameter> routes;
+
 
     private RouteParameter nowRoute;
 
@@ -39,25 +34,28 @@ public class PitcheingLine : MonoBehaviour
     private Vector3 endPosition;
 
     private RouteMoveStatus movekey;
+    private bool startmove;
+
 
     private void Start()
     {
         movekey = RouteMoveStatus.stop;
-
-
-        foreach (RouteParameter route in routes)
-        {
-            route.moveEnd = RouteMoveStatus.stop;
-            route.nextRoute = false;
-        }
+        startmove = false;
     }
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            ball.GetComponent<HitBallManeger>().Reset();
+            Debug.Log("リセット");
+        }
+
         switch (movekey)
         {
+            //待機状態
             case RouteMoveStatus.stop:
-                if (Input.GetKey(KeyCode.Space))
+                if (startmove)
                 {
                     startTime = Time.timeSinceLevelLoad;
                     nowRoute = routes.Find(r => r.MovePoint.name == "StartPoint");
@@ -65,6 +63,7 @@ public class PitcheingLine : MonoBehaviour
                 }
 
                 break;
+            //移動状態
             case RouteMoveStatus.move:
                 var diff = Time.timeSinceLevelLoad - startTime;
 
@@ -76,7 +75,7 @@ public class PitcheingLine : MonoBehaviour
                     }
                     else
                     {
-                        transform.position = nowRoute.EndMovePoint.position;
+                        ball.position = nowRoute.EndMovePoint.position;
                         string rName = nowRoute.EndMovePoint.name;
                         startTime = Time.timeSinceLevelLoad;
                         nowRoute = routes.Find(r => r.MovePoint.name == rName);
@@ -87,22 +86,28 @@ public class PitcheingLine : MonoBehaviour
 
                 if (nowRoute.CurveFlag)
                 {
-                    transform.position = Vector3.Slerp(nowRoute.MovePoint.position, nowRoute.EndMovePoint.position, pos);
+                    ball.position = Vector3.Slerp(nowRoute.MovePoint.position, nowRoute.EndMovePoint.position, pos);
                 }
                 else
                 {
-                    transform.position = Vector3.Lerp(nowRoute.MovePoint.position, nowRoute.EndMovePoint.position, rate);
+                    ball.position = Vector3.Lerp(nowRoute.MovePoint.position, nowRoute.EndMovePoint.position, rate);
                 }
+
+                break;
+            //ヒット
+            case RouteMoveStatus.hit:
 
 
                 break;
+            //移動終了
             case RouteMoveStatus.end:
                 movekey = RouteMoveStatus.stop;
-
+                startmove = false;
                 break;
         }
     }
 
+    //ギズモ
     private void OnDrawGizmosSelected()
     {
         foreach(RouteParameter route in routes)
@@ -116,5 +121,21 @@ public class PitcheingLine : MonoBehaviour
                 Gizmos.DrawLine(route.MovePoint.position, route.EndMovePoint.position);
             }
         }
+    }
+
+    public void PitcheingStart()
+    {
+        startmove = true;
+    }
+
+    public bool PitchingEnd()
+    {
+        if (movekey == RouteMoveStatus.end) return true;
+        return false;
+    }
+
+    public void IsHit()
+    {
+        movekey = RouteMoveStatus.hit;
     }
 }
