@@ -49,6 +49,8 @@ public class PitchingLine : MonoBehaviour
         {
             ball.GetComponent<HitBallManeger>().Reset();
             Debug.Log("リセット");
+            movekey = RouteMoveStatus.stop;
+            startmove = false;
         }
 
         switch (movekey)
@@ -97,7 +99,6 @@ public class PitchingLine : MonoBehaviour
             //ヒット
             case RouteMoveStatus.hit:
 
-
                 break;
             //移動終了
             case RouteMoveStatus.end:
@@ -105,6 +106,12 @@ public class PitchingLine : MonoBehaviour
                 startmove = false;
                 break;
         }
+
+        if(ball.GetComponent<HitBallManeger>().IsHit())
+        {
+            movekey = RouteMoveStatus.hit;
+        }
+
     }
 
     //ギズモ
@@ -130,8 +137,12 @@ public class PitchingLine : MonoBehaviour
 
     public bool PitchingEnd()
     {
-        if (movekey == RouteMoveStatus.end) return true;
-        return false;
+        return movekey == RouteMoveStatus.end ? true : false;
+    }
+
+    public bool PitchingHit()
+    {
+        return movekey == RouteMoveStatus.hit ? true : false;
     }
 
     public void IsHit()

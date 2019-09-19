@@ -6,16 +6,15 @@ public class HitBallManeger : MonoBehaviour
 {
     private Rigidbody rb;
     private Collider cd;
-
+    private bool hit_flag;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         cd = GetComponent<Collider>();
-        rb.isKinematic = true;
         rb.useGravity = false;
-        cd.isTrigger = true;
+        hit_flag = false;
     }
 
     // Update is called once per frame
@@ -26,19 +25,33 @@ public class HitBallManeger : MonoBehaviour
 
     public void Reset()
     {
-        rb.isKinematic = true;
-        rb.useGravity = false;
-        cd.isTrigger = true;
+        //rb.useGravity = false;
+        hit_flag = false;
     }
 
+    public bool IsHit()
+    {
+        return hit_flag;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.tag == "Bat")
+        {
+            rb.useGravity = true;
+            hit_flag = true;
+            Debug.Log("HIT");
+        }
+    }
+
+    /*
     private void OnTriggerStay(Collider other)
     {
         if(other.transform.name == "Bat")
         {
-            rb.isKinematic = false;
             rb.useGravity = true;
-            cd.isTrigger = false;
             Debug.Log("HIT");
         }
     }
+    */
 }

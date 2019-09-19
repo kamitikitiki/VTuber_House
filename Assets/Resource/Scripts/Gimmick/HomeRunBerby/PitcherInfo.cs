@@ -41,7 +41,7 @@ public class PitcherInfo : MonoBehaviour
                     if(pitchingTypes[pt_no] != null)
                     {
                         pitchingTypes[pt_no].PitcheingStart();
-                        Debug.Log(pitchingTypes[pt_no].name);
+                        Debug.Log(pitchingTypes[pt_no].name + "：スタート");
                     }
                     else
                     {
@@ -51,8 +51,12 @@ public class PitcherInfo : MonoBehaviour
             }
             else
             {
+                if(pitchingTypes[pt_no].PitchingHit())
+                {
+                    pitchingStart = false;
+                }
                 //投球終了
-                if (pitchingTypes[pt_no].PitchingEnd())
+                else if (pitchingTypes[pt_no].PitchingEnd())
                 {
                     pitchingStart = false;
                 }
