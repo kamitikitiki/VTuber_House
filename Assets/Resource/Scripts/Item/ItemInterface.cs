@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class ItemInterface : MonoBehaviourPunCallbacks, IPunObservable
+public class ItemInterface : MonoBehaviourPunCallbacks
 {
 
     ////////////////////////////////////////////////
@@ -15,25 +15,17 @@ public class ItemInterface : MonoBehaviourPunCallbacks, IPunObservable
     public bool IsHave() { return f_Have; }
     public bool SetHave()
     {
-        if(GetComponent<PhotonView>().IsMine)
-        {
+
             f_Have = true;
-            gameObject.GetComponent<Rigidbody>().useGravity = false;
-            return true;
-        }
-        else
-        {
-            GetComponent<PhotonView>().RequestOwnership();
-            return false;
-        }
+            gameObject.GetComponent<Rigidbody>().isKinematic = false;
+
+        return true;
+
     }
     public void SetRelease()
     {
-        if (GetComponent<PhotonView>().IsMine)
-        {
             f_Have = false;
-            gameObject.GetComponent<Rigidbody>().useGravity = true;
-        }
+           gameObject.GetComponent<Rigidbody>().isKinematic = true;
     }
 
     //--パッドボタンを押したときの変数
@@ -51,39 +43,5 @@ public class ItemInterface : MonoBehaviourPunCallbacks, IPunObservable
 
     void Update()
     {
-        if (GetComponent<PhotonView>().IsMine)
-        {
-            if(f_Have == false)
-            {
-                gameObject.GetComponent<Rigidbody>().useGravity = true;
-            }
-        }
-    }
-
-    // データを送受信するメソッド
-    void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        if (stream.IsWriting)
-        {
-            stream.SendNext(f_Have);
-            stream.SendNext(f_Button);
-        }
-        else
-        {
-            bool have = (bool)stream.ReceiveNext();
-            int button = (int)stream.ReceiveNext();
-
-            if(f_Have != have) { f_Have = have; IsChangeHave(); }
-            if (f_Button != button) { f_Button = button; IsChangeButton(); }
-
-            if (f_Have == false && gameObject.GetComponent<Rigidbody>().useGravity == false)
-            {
-                gameObject.GetComponent<Rigidbody>().useGravity = true;
-            }
-            else if(gameObject.GetComponent<Rigidbody>().useGravity == true)
-            {
-                gameObject.GetComponent<Rigidbody>().useGravity = false;
-            }
-        }
     }
 }

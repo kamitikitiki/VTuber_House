@@ -30,8 +30,8 @@ public class Hand_Trigger : MonoBehaviour
                 src.SetRelease();
                 Joint.connectedBody = null;
                 HaveItem = null;
-                releaseItem.velocity = SteamVR_Actions.default_Pose.GetVelocity(HandType);
-                releaseItem.angularVelocity = SteamVR_Actions.default_Pose.GetAngularVelocity(HandType);
+                //releaseItem.velocity = SteamVR_Actions.default_Pose.GetVelocity(HandType);
+               // releaseItem.angularVelocity = SteamVR_Actions.default_Pose.GetAngularVelocity(HandType);
             }
 
             if (HaveItem != null)

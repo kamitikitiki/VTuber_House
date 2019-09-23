@@ -6,6 +6,7 @@ public class GolfBall : MonoBehaviour
 {
 
     public Transform PlayerTransform;
+    public Vector3 StartPosition; 
 
     public Vector3 speed;
 
@@ -15,6 +16,7 @@ public class GolfBall : MonoBehaviour
     void Start()
     {
         m_Shoot = false;
+        StartPosition = transform.position;
     }
 
     // Update is called once per frame
@@ -28,10 +30,18 @@ public class GolfBall : MonoBehaviour
             {
                 m_Shoot = false;
                 PlayerTransform.position = this.transform.position;
+                StartPosition = transform.position;
                 Debug.Log("Ball Stop");
             }
         }
 
+        //ボール落下判定
+        if (transform.position.y <= -30)
+        {
+            transform.position = StartPosition;
+            transform.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            transform.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+        }
         //デバッグ用処理
         if (Input.GetKeyDown(KeyCode.Space))
         {

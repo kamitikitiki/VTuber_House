@@ -30,7 +30,6 @@ public class ItemCamera : ItemInterface
     void DisplayChange()
     {
         GameObject view = transform.GetChild(2).gameObject;
-        transform.GetChild(2).transform.GetComponent<Photon.Pun.PhotonView>().RequestOwnership();
         Vector3 rotate = view.transform.eulerAngles;
 
         Debug.Log(f_Button);
