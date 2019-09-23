@@ -3423,6 +3423,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5991461942199542731}
   - component: {fileID: 4202323528669189586}
+  - component: {fileID: 179904424}
   m_Layer: 0
   m_Name: kagamin
   m_TagString: Untagged
@@ -3464,10 +3465,25 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   ObservedComponents:
-  - {fileID: 0}
+  - {fileID: 179904424}
   viewIdField: 0
   InstantiationId: 21
   isRuntimeInstantiated: 0
+--- !u!114 &179904424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5077468670651827144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
 --- !u!1 &5227406676607970291
 GameObject:
   m_ObjectHideFlags: 0
