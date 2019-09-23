@@ -34,8 +34,8 @@ public class Sled : MonoBehaviour
 
         if(m_RidePlayer != null)
         {
-            m_RidePlayer.position = transform.position;
-            m_RidePlayer.rotation = transform.rotation;
+            //m_RidePlayer.position = transform.position;
+            //m_RidePlayer.rotation = transform.rotation;
         }
     }
 
@@ -45,9 +45,9 @@ public class Sled : MonoBehaviour
         {
             if (other.tag == "Player")
             {
-                if (other.transform.root.root.GetComponent<PhotonView>().IsMine)
+                //if (other.transform.root.root.GetComponent<PhotonView>().IsMine)
                 {
-                    m_RidePlayer = other.transform.root.root;
+                    //m_RidePlayer = other.transform.root.root;
                 }
             }
         }

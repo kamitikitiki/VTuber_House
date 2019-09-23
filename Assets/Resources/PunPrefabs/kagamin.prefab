@@ -3423,7 +3423,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5991461942199542731}
   - component: {fileID: 4202323528669189586}
-  - component: {fileID: 179904424}
+  - component: {fileID: 3197310216228015789}
   m_Layer: 0
   m_Name: kagamin
   m_TagString: Untagged
@@ -3465,11 +3465,11 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   ObservedComponents:
-  - {fileID: 179904424}
+  - {fileID: 3197310216228015789}
   viewIdField: 0
   InstantiationId: 21
   isRuntimeInstantiated: 0
---- !u!114 &179904424
+--- !u!114 &3197310216228015789
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
