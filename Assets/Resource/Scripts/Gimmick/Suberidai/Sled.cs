@@ -45,9 +45,9 @@ public class Sled : MonoBehaviour
         {
             if (other.tag == "Player")
             {
-                if (other.transform.root.GetComponent<PhotonView>().IsMine)
+                if (other.transform.root.root.GetComponent<PhotonView>().IsMine)
                 {
-                    m_RidePlayer = other.transform.root.GetChild(0);
+                    m_RidePlayer = other.transform.root.root;
                 }
             }
         }
